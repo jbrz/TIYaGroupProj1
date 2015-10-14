@@ -3,13 +3,13 @@
 
 body{
  /*//light black*/
- background-color: #EFD9B4 ;
+ background-color: #1B1A18 ;
  margin-top: 3%;
  margin-left: 16%;
  margin-right: 16%;
 }
 
-
+// the header still needs the social media stuff.
 h1{
   margin: 1%;
  font-family: "Great Vibes", sans-serif;
@@ -86,27 +86,58 @@ h2 {
   margin-bottom: 3%;
 }
 
-.accordion {
-  width: 20%;
-  height: 20%;
-  float: left;
-  background-color: solid red;
+.content {
+  width: 75%;
+  height: 50%;
+  margin-top: 3%;
+  overflow: hidden;
+// this border causes a line above pic 1
+  border: 5px solid #FDFDFD;
+  background-color: #EFD9B4;
 }
 
+h3 {
+ font-family: Helvetica, sans-serif;
+ color: #7B1F35 ;
+ font-size: 13px;
+}
 
+footer {
+  background-color: #1B1A18;
+}
 
+//////// footer
 
-
-
-
-// p{
-//  font-family: Georgia, serif;
+// h5 {
+//  font-family: "Great Vibes", sans-serif;
 //  font-weight: lighter;
- /*Dark Black*/
-//  color: #2C272B ;
-//  margin: 10%;
-//  text-align: justify;
+//  font-size: 80px;
+//  /*Burgundy*/
+//  color:  #7B1F35;
+//  text-align: left;
 // }
+
+li {
+  list-style-type: none;
+  display: inline;
+// make current tab #EFD9B4 & background tabs #FDFDFD 
+}
+
+li.nav {
+  margin-right: 5%;
+  list-style-type: none;
+  display: inline;
+// make current tab #EFD9B4 & background tabs #FDFDFD 
+}
+
+p {
+ font-family: Georgia, serif;
+ font-weight: lighter;
+ /*Dark Black*/
+ color: #2C272B ;
+ margin: 10%;
+ text-align: justify;
+}
 
 // div{
 //  max-width: 40%;

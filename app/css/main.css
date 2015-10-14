@@ -8,7 +8,7 @@ html {
 
 body {
   /*//light black*/
-  background-color: #EFD9B4;
+  background-color: #1B1A18;
   margin-top: 3%;
   margin-left: 16%;
   margin-right: 16%; }
@@ -100,10 +100,35 @@ h2 {
 .photo5 {
   margin-bottom: 3%; }
 
-.accordion {
-  width: 20%;
-  height: 20%;
-  float: left;
-  background-color: solid red; }
+.content {
+  width: 75%;
+  height: 50%;
+  margin-top: 3%;
+  overflow: hidden;
+  border: 5px solid #FDFDFD;
+  background-color: #EFD9B4; }
 
-/*Dark Black*/
+h3 {
+  font-family: Helvetica, sans-serif;
+  color: #7B1F35;
+  font-size: 13px; }
+
+footer {
+  background-color: #1B1A18; }
+
+li {
+  list-style-type: none;
+  display: inline; }
+
+li.nav {
+  margin-right: 5%;
+  list-style-type: none;
+  display: inline; }
+
+p {
+  font-family: Georgia, serif;
+  font-weight: lighter;
+  /*Dark Black*/
+  color: #2C272B;
+  margin: 10%;
+  text-align: justify; }
