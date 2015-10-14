@@ -1,0 +1,32 @@
+body {
+  /*//light black*/
+  background-color: #EFD9B4;
+  margin: 15px; }
+
+h1 {
+  font-family: "Great Vibes", sans-serif;
+  font-weight: lighter;
+  font-size: 80px;
+  /*Burgundy*/
+  color: #7B1F35;
+  text-align: center; }
+
+.banner {
+  padding: 5px;
+  margin-bottom: 10px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.box {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative; }
+
+.main {
+  float: right; }
+
+/*Dark Black*/
