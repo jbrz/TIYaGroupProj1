@@ -1,3 +1,4 @@
 ## This is a Readme
 
-> You should probably update me.
+This repo contains all the project files pertaining to the website of J BAM's - a restaurant opening soon near you!
+
