@@ -14,27 +14,52 @@
 
   var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
 
-  // confirm access to the APIs
+  // newsBox
 
-  // let menuPromise = $.getJSON(menuURL);
-  //   menuPromise.then( function (menuResponse) {
-  //     console.log(menuResponse);
-  //   });
+  // template function
+  // let newsBoxTemplate = _.template($('#newsBox').text());
 
+  // promise and confirmation
   var newsPromise = $.getJSON(newsURL);
 
   newsPromise.then(function (newsResponse) {
-    console.log(newsResponse);
-    console.log(newsResponse.title);
-    console.log(newsResponse.post);
+    // console.log(newsResponse);
   });
 
+  // append newsTitle text
+  newsPromise.then(function (newsResponse) {
+    $('.newsTitle').append(newsResponse.title);
+  });
+
+  // append newsPost text
+  newsPromise.then(function (newsResponse) {
+    $('.newsPost').append(newsResponse.post);
+  });
+
+  // specialBox
   var specialPromise = $.getJSON(specialURL);
 
   specialPromise.then(function (specialResponse) {
     console.log(specialResponse);
-    console.log(specialResponse.menu_item_id);
   });
+
+  // menuPromis
+
+  // promise and confirmation
+  var menuPromise = $.getJSON(menuURL);
+
+  // appetizers
+  menuPromise.then(function (menuResponse) {
+    console.log(menuResponse);
+    var appetizerMenu = menuResponse.appetizers;
+    console.log(appetizerMenu);
+
+    _.each(appetizerMenu, function (menuItem) {
+      $('.appetizerMenu').append(menuItem.item);
+      console.log(menuItem.item);
+    });
+  });
+  //
 
   // let flickrPromise = $.getJSON(flickrURL);
   //   flickrPromise.then( function (flickrResponse) {

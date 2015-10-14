@@ -15,28 +15,62 @@
   let specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
 
 
-// confirm access to the APIs
+// newsBox
+  
+  // template function
+  // let newsBoxTemplate = _.template($('#newsBox').text());
 
-// let menuPromise = $.getJSON(menuURL);
-//   menuPromise.then( function (menuResponse) {
-//     console.log(menuResponse);
-//   });
-
-let newsPromise = $.getJSON(newsURL);
+  // promise and confirmation
+  let newsPromise = $.getJSON(newsURL);
 
   newsPromise.then( function (newsResponse) {
-    console.log(newsResponse);
-    console.log(newsResponse.title);
-    console.log(newsResponse.post);
+    // console.log(newsResponse);
   });
-  
 
-let specialPromise = $.getJSON(specialURL);
+  // append newsTitle text
+  newsPromise.then( function (newsResponse) {
+    $('.newsTitle').append(newsResponse.title);
+  });
+
+  // append newsPost text
+  newsPromise.then( function (newsResponse) {
+    $('.newsPost').append(newsResponse.post);
+  });
+
+
+// specialBox
+  let specialPromise = $.getJSON(specialURL);
 
   specialPromise.then( function (specialResponse) {
     console.log(specialResponse);
-    console.log(specialResponse.menu_item_id);
   });
+
+
+// menuPromis
+
+// promise and confirmation
+let menuPromise = $.getJSON(menuURL);
+
+  // appetizers
+  menuPromise.then( function (menuResponse) {
+    console.log(menuResponse);
+    let appetizerMenu = menuResponse.appetizers;
+    console.log(appetizerMenu); 
+
+    _.each(appetizerMenu, function (menuItem) { 
+      $('.appetizerMenu').append(menuItem.item);
+      console.log(menuItem.item);
+    });
+  });
+  // 
+
+
+
+
+
+
+  
+
 
 // let flickrPromise = $.getJSON(flickrURL);
 //   flickrPromise.then( function (flickrResponse) {
