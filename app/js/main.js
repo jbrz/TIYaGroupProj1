@@ -41,10 +41,6 @@
   // specialBox
   var specialPromise = $.getJSON(specialURL);
 
-  specialPromise.then(function (specialResponse) {
-    // console.log(specialResponse);
-  });
-
   // menuPromise
 
   // promise and confirmation
@@ -53,6 +49,28 @@
   // menu Sections
   menuPromise.then(function (menuResponse) {
     // console.log(menuResponse);
+
+    specialPromise.then(function (specialResponse) {
+      // console.log(specialResponse);
+
+      var specialItemId = _.values(_.pick(specialResponse, 'menu_item_id'));
+
+      var specialItemIdValue = _.first(specialItemId);
+
+      // console.log(specialItemIdValue);
+    });
+
+    // console.log(specialMenuItem);
+
+    console.log(arrayofArrays.join());
+
+    var x = _.each(arrayofArrays, function (array) {
+      _.filter(array, function (object) {
+        idValues = _.pick(object);
+        console.log(idValues);
+        return _.values(idValues) === '25';
+      });
+    });
 
     // pulling the name of each section
     var menuSections = _.keys(menuResponse);
@@ -64,7 +82,7 @@
     });
 
     var arrayofArrays = _.values(menuResponse);
-    // console.log(arrayofArrays);
+    console.log(arrayofArrays);
 
     var menuTemplateString = $('#divID').html();
     var templateFunction = _.template(menuTemplateString);
@@ -112,15 +130,15 @@
   var flickrPromise = $.getJSON(flickrURL);
 
   flickrPromise.then(function (flickrResponse) {
-    console.log(flickrResponse);
+    // console.log(flickrResponse);
     var arrayOfPhotos = flickrResponse.photos.photo;
-    console.log(arrayOfPhotos);
+    // console.log(arrayOfPhotos);
     var arrayOfImgUrls = _.map(arrayOfPhotos, function (photo) {
       return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
     });
     var numberOfImages = 5;
     var sampleOfImages = _.sample(arrayOfImgUrls, numberOfImages);
-    console.log(sampleOfImages);
+    // console.log(sampleOfImages);
     _.each(sampleOfImages, function (randomImage) {
       $('#imageContainer').append('<div class="imgContainerBox">\n              <img class="imgBox" src={randomImage}\n            </div>');
     });
