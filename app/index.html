@@ -72,20 +72,9 @@
     <div class="main">
       <div class="content">
         <div class="menu">
-          <script type="text/template" id="MenuItem">
-            <li class="menuListItem">
-              <div class="menuItemWrap">
-                <div class="menuItemTop">
-                  <div class="menuItemName"></div><div class="spacer"><div class="bgimage"></div</div>
-                  <div class="menuItemPrice"></div>
-                </div>
-                <div class="menuItemBottom">
-                  <div class="menuItemDescription"></div>
-                  <div class="info"><div class="icons"></div</div>
-                </div>
-              </div>
-            </li>
-          </script>
+
+
+
         </div>
       </div>
       <div class="photostream">
@@ -103,5 +92,24 @@
 
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
+  <script type="text/template" id="menuDiv">
+    <div class="<%= menuSections %>"><p><%= menuSections %></p>
+    <ul id="<%= menuSections %>"></div>
+  </script>
+  <script type="text/template" id="menuItem">
+    <li class="menuListItem">
+      <div class="menuItemWrap">
+        <div class="menuItemTop">
+          <div class="menuItemName">
+          <%= item %></div><div class="spacer"><div class="bgimage"></div</div>
+          <div class="menuItemPrice"><%= price %></div>
+        </div>
+        <div class="menuItemBottom">
+          <div class="menuItemDescription"><%= description %></div>
+          <div class="info"><div class="icons"></div</div>
+        </div>
+      </div>
+    </li>
+  </script>
 </body>
 </html>
