@@ -1,22 +1,18 @@
 'use strict';
 
-// URLs for API data
-
-let flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34&format=json&nojsoncallback=1&text=cats&extras=url_o';
-
-var menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
-
-var newsURL = 'https://json-data.herokuapp.com/restaurant/news/1';
-
-var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
-
-// menu promise and confirmation
-var menuPromise = $.getJSON(menuURL);
-
-
 (function () {
 
   console.log('It Works!');
+
+  // URLs for API data
+
+  // let flickrURL = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=food&format=json&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
+
+  var menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
+
+  var newsURL = 'https://json-data.herokuapp.com/restaurant/news/1';
+
+  var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
 
   // newsBox
 
@@ -46,86 +42,73 @@ var menuPromise = $.getJSON(menuURL);
   specialPromise.then(function (specialResponse) {
     // console.log(specialResponse);
   });
-})();
 
-  
-// menu Sections
-menuPromise.then(function (menuResponse) {
+  // menuPromise
 
-  // pulling the name of each section
-  var menuSections = _.keys(menuResponse);
+  // promise and confirmation
+  var menuPromise = $.getJSON(menuURL);
 
-  return menuSections;
-  console.log(menuSections.length);
+  // menu Sections
+  menuPromise.then(function (menuResponse) {
+    console.log(menuResponse);
 
+    // pulling the name of each section
+    var menuSections = _.keys(menuResponse);
+    console.log(menuSections);
 
-  var templateString = $('#menuDiv').text();
-  var renderTemplate = _.template(templateString);
-  
-  _.each(menuSections, function (menuSection) {
-    var menuHTML = renderTemplate(menuSection);
-    $('.menu').append(menuSection);
-  });
+    _.each(menuSections, function (menuSection) {
+      $('.menuSection').append(menuSection);
+      console.log(menuSection);
+    });
 
-  var arrayofArrays = _.values(menuResponse);
-  // console.log(arrayofArrays);
+    var arrayofArrays = _.values(menuResponse);
+    console.log(arrayofArrays);
 
+    var menuTemplateString = $('#divID').html();
+    var templateFunction = _.template(menuTemplateString);
 
-  // function(i) {
-     
-  //   _.each(menuSections[i], function (key){
-  //      var menuHTML = renderTemplate(key);
-  //     $('.menu').append(menuHTML);
-  //   });
-  // })
-});
+    _.each(arrayofArrays, function (array) {
 
-(function () {
-  var templateString = $('#menuDiv').text();
-  var renderTemplate = _.template(templateString);
+      _.each(array, function (object) {
 
-  _.each(arrayofArrays, function (array) {
+        var objectItem = templateFunction(object.item);
+        var objectPrice = templateFunction(object.price);
+        var objectDescrip = templateFunction(object.description);
 
-    _.each(array, function (object) {
-      
-      var menuHTML = renderTemplate(object);
-      var objectItem = renderTemplate(object.item);
-      var objectPrice = renderTemplate(object.price);
-      var objectDescrip = renderTemplate(object.description);
+        $('.menuItemName').append(objectItem);
+        $('.menuItemPrice').append(objectPrice);
+        $('.menuItemDescription').append(objectDescrip);
 
-      $('.menuItemName').append(objectItem);
-      $('.menuItemPrice').append(objectPrice);
-      $('.menuItemDescription').append(objectDescrip);
+        if (object.allergy > 0) {
+          $('.icons').addClass($('showAllergy'));
+        };
 
-      if (object.allergy > 0) {
-        $('.icons').addClass($('showAllergy'));
-      };
+        if (object.favorite > 0) {
+          $('.icons').addClass($('showFavorite'));
+        };
 
-      if (object.favorite > 0) {
-        $('.icons').addClass($('showFavorite'));
-      };
+        if (object.spicy > 0) {
+          $('.icons').addClass($('showSpicy'));
+        };
 
-      if (object.spicy > 0) {
-        $('.icons').addClass($('showSpicy'));
-      };
+        if (object.vegan > 0) {
+          $('.icons').addClass($('showVegan'));
+        };
+      });
+    });
 
-      if (object.vegan > 0) {
-        $('.icons').addClass($('showVegan'));
-      };
+    var arrayOfSections = _.pick(menuResponse, function (menuSection) {
+      _.each(menuSection, function (x) {
+        // console.log(menuSection);
+        return x.values;
+        $('.menuSection').append(x);
+        console.log(arrayOfSections);
+      });
     });
   });
-});
 
-// var arrayOfSections = _.pick(menuResponse, function (menuSection) {
-//   _.each(menuSection, function (x) {
-//     // console.log(menuSection);
-//     return x.values;
-//     $('.menuSection').append(x);
-//     console.log(arrayOfSections);
-//   });
-// });
-
-let flickrPromise = $.getJSON(flickrURL);
-flickrPromise.then( function (flickrResponse) {
-  console.log(flickrResponse);
-});
+  // let flickrPromise = $.getJSON(flickrURL);
+  //   flickrPromise.then( function (flickrResponse) {
+  //     console.log(flickrResponse);
+  //   });
+})();
