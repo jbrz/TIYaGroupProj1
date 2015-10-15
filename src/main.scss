@@ -1,5 +1,6 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 
 body{
  /*//light black*/
@@ -9,15 +10,20 @@ body{
  margin-right: 16%;
 }
 
+.pageWrap {
+  margin: 0;
+  padding: 0;
+}
+
 // the header still needs the social media stuff.
 h1{
   margin: 1%;
- font-family: "Great Vibes", sans-serif;
- font-weight: lighter;
- font-size: 80px;
- /*Burgundy*/
- color:  #7B1F35 ;
- text-align: center;
+  font-family: "Great Vibes", sans-serif;
+  font-weight: lighter;
+  font-size: 80px;
+  /*Burgundy*/
+  color:  #7B1F35 ;
+  text-align: center;
 }
 
 .banner {
@@ -26,6 +32,21 @@ h1{
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3%;
+}
+
+.social {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  float: right;
+  margin-bottom: 1%;
+
+}
+
+///// zolical - supposed to be the icons///// 
+[class*="zolical-"]:before {
+  color: white;
+  font-family: 'zocial', sans-serif;
 }
 
 /*from NEAT temalpate*/
@@ -62,7 +83,7 @@ section {
   float: right;
 }
 
-h2 {
+h2 { 
  font-family: Helvetica, sans-serif;
  color: #7B1F35 ;
 }
@@ -70,6 +91,12 @@ h2 {
 .main {
 
 }
+
+.main:hover {
+
+}
+
+
 .photo1 {
   margin-bottom: 3%;
 }
@@ -146,7 +173,6 @@ h2 {
 }
 
 
-
 h3 {
  font-family: Helvetica, sans-serif;
  color: #7B1F35 ;
@@ -197,7 +223,7 @@ p {
 }
 
 
-////// footer
+////////// footer /////////////
 
 footer {
   height: 45px;

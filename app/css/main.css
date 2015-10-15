@@ -1,3 +1,4 @@
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 html {
   box-sizing: border-box; }
 
@@ -12,6 +13,10 @@ body {
   margin-top: 3%;
   margin-left: 16%;
   margin-right: 16%; }
+
+.pageWrap {
+  margin: 0;
+  padding: 0; }
 
 h1 {
   margin: 1%;
@@ -28,6 +33,17 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3%; }
+
+.social {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  float: right;
+  margin-bottom: 1%; }
+
+[class*="zolical-"]:before {
+  color: white;
+  font-family: 'zocial', sans-serif; }
 
 /*from NEAT temalpate*/
 section {
