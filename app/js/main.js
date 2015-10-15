@@ -48,7 +48,7 @@
 
   // menu Sections
   menuPromise.then(function (menuResponse) {
-    // console.log(menuResponse);
+    console.log(menuResponse);
 
     specialPromise.then(function (specialResponse) {
       // console.log(specialResponse);
@@ -62,15 +62,13 @@
 
     // console.log(specialMenuItem);
 
-    console.log(arrayofArrays.join());
-
-    var x = _.each(arrayofArrays, function (array) {
-      _.filter(array, function (object) {
-        idValues = _.pick(object);
-        console.log(idValues);
-        return _.values(idValues) === '25';
+    var z = _.filter(arrayofArrays, function (x) {
+      return _.filter(x, function (y) {
+        return _.propertyOf(y)('id') !== '1';
       });
     });
+
+    console.log(z);
 
     // pulling the name of each section
     var menuSections = _.keys(menuResponse);
@@ -82,7 +80,7 @@
     });
 
     var arrayofArrays = _.values(menuResponse);
-    console.log(arrayofArrays);
+    // console.log(arrayofArrays);
 
     var menuTemplateString = $('#divID').html();
     var templateFunction = _.template(menuTemplateString);

@@ -61,7 +61,7 @@ let menuPromise = $.getJSON(menuURL);
 
   // menu Sections
   menuPromise.then( function (menuResponse) {
-    // console.log(menuResponse);
+    console.log(menuResponse);
 
 
     specialPromise.then( function (specialResponse) {
@@ -77,18 +77,16 @@ let menuPromise = $.getJSON(menuURL);
 
     // console.log(specialMenuItem);
 
+    
 
-
-
-    console.log(arrayofArrays.join())
-
-     let x = _.each(arrayofArrays, function (array) {
-        _.filter(array, function (object) {
-            idValues = _.pick(object);
-            console.log(idValues);
-            return _.values(idValues) === '25';
-        });
+    let z = _.filter (arrayofArrays, function (x) {
+      return _.filter (x, function (y) {
+        return _.propertyOf(y)('id') !== '1';
+      });
     });
+
+    console.log(z);
+
   
 
 
@@ -106,7 +104,7 @@ let menuPromise = $.getJSON(menuURL);
     });
 
     let arrayofArrays = _.values(menuResponse);
-    console.log(arrayofArrays);
+    // console.log(arrayofArrays);
 
 
     let menuTemplateString = $('#divID').html();
