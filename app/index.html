@@ -2,89 +2,148 @@
 <html>
 <head>
   <title>J BAM's</title>
+
+   <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+<!-- Page Wrapper (for background and sizing) -->
 <div class="pageWrap">
   
+<!-- Header div for logo and media links -->
   <div class="Header">
+    <div class="logo">
+      <h1>J.Bam's</h1>
+    </div>
+    <div>
+      <ul class="social">
+        <li class="zocial-facebook"></li>
+        <li class="zocial-twitter"></li>
+        <li class="zocial-googleplus"></li>
+        <li class="zocial-linkedin"></li>
+      </ul>
+    </div>
   </div>
 
-
+<!-- Main container - holds all page content not nav/footer related  -->
   <div class="container">
-    
+
     <div class="banner">
-      <img class="img-banner" src="http://www.placecage.com/960/270">
+      <img class="img-banner" src="http://www.placecage.com/1000/270">
     </div>
 
-    <div class="boxes">
-      <div class="box1">
-        <p class="boxTitle">
-          Latest News
-        </p>
-        <p class="newsTitle">
-          <script type=text/template>
-            <%= title %>
-          </script>
-        </p>
-        <p class="newsPost">
-          <script type=text/template>
-            <%= post %>
-          </script>
-        </p>
-      </div>
-
-      <div class="box2">
-        <p class="boxTitle">
-          Today's Special
-      </div>
-
-      <div class="box3">
-        <p class="boxTitle">
-          Our Location
-        </p>
-        <iframe
+<!-- triboxes in middle of page -->
+    <section>
+      <aside>
+        <div class="box1">
+          <p class="boxTitle">
+            Latest News
+          </p>
+          <p class="newsTitle">
+            <script type=text/template>
+              <%= title %>
+            </script>
+          </p>
+          <p class="newsPost">
+            <script type=text/template>
+              <%= post %>
+            </script>
+          </p>
+        </div>
+      </aside>
+      <aside><div class="box2"><p class="boxTitle">
+        Today's Special</div></aside>
+      <aside>
+        <div class="box3">
+          <p class="boxTitle">
+            Our Location
+          </p>
+          <iframe
            width="265"
            height="100"
            frameborder="0" style="border:0"
            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwhu5p1I_q2AFctjDPPDmoBEH-YZY4mjc&amp;q=721+Miami+Cir+NE+Atlanta,+GA" allowfullscreen>
-        </iframe>
-         <p>
-          721 Miami Cir NE Atlanta, GA
-         </p>
-         <span>
-           Phone number
-         </span>
-         <span>
-           Phone number 2
-         </span>
-         <a href="#">
-           Map
-         </a>
-         <a href="#">
-           Directions
-         </a>
-      </div>
-    </div>
+          </iframe>
+          <p>
+            721 Miami Cir NE Atlanta, GA
+          </p>
+          <span>
+            Phone number
+          </span>
+          <span>
+            Phone number 2
+          </span>
+          <a href="#">
+            Map
+          </a>
+          <a href="#">
+            Directions
+          </a>
+        </div>
+      </aside>
+    </section>
 
+<!-- Primary div containing Accordion and Photostream -->
     <div class="main">
+
       <div class="content">
-        <div class="menu">
-
-
-
+        <nav class="navPanel">
+          <ul>
+            <li rel="panel1" class="active">Our Story</li>
+            <li rel="panel2">Menu</li>
+            <li rel="panel3">Reservations</li>
+          </ul>
+        </nav>
+        <div class="accordion1 menu" class="menuDiv">
+        </div>
+        <div id="accordion2" class="accordion">
+          <ul>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+          </ul>
+        </div>
+        <div id="accordion3" class="accordion">
+          <form class="reservationTab">
+            <ul>
+              <li>Full Name:</li>
+              <br></br>
+                <input class="fullName" placeholder ="Full Name" />
+              <br></br>
+              <li>Number of Guest:</li>
+              <br></br>
+                <input class="guest" placeholder ="Size of party" />
+              <br></br>
+              <li>Date & Time:</li>
+              <br></br>
+                <input class="date" placeholder ="mm/dd/yy, 00:00" />
+              <br></br>
+              <li>Special Notes:</li>
+              <br></br>
+                <input class="notes" placeholder ="Do you have any special request?
+                Are you celebrating a special Event?" />
+              <br></br>
+              <li class="preference">Seating Preference:</li>
+              <select>
+              <option>Indoor</option>
+              <option>Outdoor</option>
+              <option>Booth</option>
+              <br></br>
+              <button>Reserve Table</button>
+            </ul>
+          </form>
         </div>
       </div>
+
+<!-- Photos -->
       <div class="photostream">
-        <div class="photo1"><img src="http://www.placecage.com/216/216"></div>
-        <div class="photo2"><img src="http://www.fillmurray.com/216/216"></div>
-        <div class="photo3"><img src="http://www.placecage.com/216/216"></div>
-        <div class="photo4"><img src="http://www.fillmurray.com/216/216"></div>
-        <div class="photo5"><img src="http://www.placecage.com/216/216"></div>
       </div>
     </div>
+
+<!-- Footer -->
+    <footer>
+      <h5>J.Bam's</h5>
+      <p class="subText">Address here   <span>::</span>   (404) 123-4567   <span>::</span>   email</p>
+    </footer>
 
   </div>
 
@@ -92,10 +151,14 @@
 
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
+
+<!-- Menu HTML injection script -->
   <script type="text/template" id="menuDiv">
     <div class="<%= menuSections %>"><p><%= menuSections %></p>
     <ul id="<%= menuSections %>"></div>
   </script>
+
+<!-- MenuITEM HTML injection script -->
   <script type="text/template" id="menuItem">
     <li class="menuListItem">
       <div class="menuItemWrap">
