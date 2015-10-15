@@ -1,5 +1,6 @@
-(function () {
+"use strict";
 
+(function () {
   console.log('It Works!');
 
 
@@ -7,7 +8,7 @@
 // URLs for API data
 
   
-  let tagSearch = "food"
+  let tagSearch = "food";
 
   let flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags='+ tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
 
@@ -23,12 +24,12 @@
   let newsPromise = $.getJSON(newsURL);
   
   // append newsTitle text
-  newsPromise.then( function (newsResponse) {
+  newsPromise.then(function (newsResponse) {
     $('.newsTitle').append(newsResponse.title);
   });
 
   // append newsPost text
-  newsPromise.then( function (newsResponse) {
+  newsPromise.then(function (newsResponse) {
     $('.newsPost').append(newsResponse.post);
   });
 
@@ -38,35 +39,30 @@
   let menuPromise = $.getJSON(menuURL);
   let specialPromise = $.getJSON(specialURL);
 
-  // menu Sections
-  menuPromise.then( function (menuResponse) {
+// menu Sections
+  menuPromise.then(function (menuResponse) {
     return menuResponse;
-    specialPromise.then( function (specialResponse) {
+    specialPromise.then(function (specialResponse) {
       let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
       let specialItemIdValue = _.first(specialItemId);
     });
   
-    // pulling the name of each section
+// pulling the name of each section
     let menuSections = _.keys(menuResponse);
       return (menuSections);
 
-
-
-    var templateStringSelect = $('#itemSelector').text();
-    var renderTemplate = _.template(templateString);
-    var renderSelector = _.template(templateStringSelect);
-
-    var templateString = $('#menuDiv').text();
-    let templateFunction = _.template(menuTemplateString);
+//  Injecting Menu divs
+    var menuTemplateString = $('#menuDiv').text();
+    var renderTemplate = _.template(menuTemplateString);
 
     _.each(menuSections, function (SectionTitle) {
-      console.log(SectionTitle);
-      $('.menuSection').append(SectionTitle);
+      var menuHTML = renderTemplate(SectionTitle)
+      $('.menu').append(SectionTitle);
     });
 
+//  Menu div injection
     let arrayofArrays = _.values(menuResponse);
     console.log(arrayofArrays);
-
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
@@ -101,14 +97,14 @@
 
     });
 
-    let arrayOfSections = _.pick(menuResponse, function (menuSection) {
-      _.each(menuSection, function (x) {
-      // console.log(menuSection);
-      return x.values;
-      $('.menuSection').append(x);
-      // console.log(arrayOfSections);
-      });
-    });
+    // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
+    //   _.each(menuSection, function (x) {
+    //     console.log(menuSection);
+    //     return x.values;
+    //     $('.menuSection').append(x);
+    //     console.log(arrayOfSections);
+    //   });
+    // });
 
 
   });
