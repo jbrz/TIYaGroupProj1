@@ -1,12 +1,15 @@
 (function () {
 
-  console.log('It Works!');
+  // console.log('It Works!');
 
 
 
 // URLs for API data
 
-  // let flickrURL = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=food&format=json&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
+  
+  let tagSearch = "food"
+
+  let flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags='+ tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
 
   let menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
 
@@ -47,10 +50,6 @@
 // specialBox
   let specialPromise = $.getJSON(specialURL);
 
-  specialPromise.then( function (specialResponse) {
-    // console.log(specialResponse);
-  });
-
 
 
 
@@ -62,15 +61,48 @@ let menuPromise = $.getJSON(menuURL);
 
   // menu Sections
   menuPromise.then( function (menuResponse) {
-    console.log(menuResponse);
+    // console.log(menuResponse);
+
+
+    specialPromise.then( function (specialResponse) {
+    // console.log(specialResponse);
+    
+    let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
+    
+    let specialItemIdValue = _.first(specialItemId);
+    
+    // console.log(specialItemIdValue);
+        });
+
+
+    // console.log(specialMenuItem);
+
+
+
+
+    console.log(arrayofArrays.join())
+
+     let x = _.each(arrayofArrays, function (array) {
+        _.filter(array, function (object) {
+            idValues = _.pick(object);
+            console.log(idValues);
+            return _.values(idValues) === '25';
+        });
+    });
+  
+
+
+
+
+
 
     // pulling the name of each section
     let menuSections = _.keys(menuResponse);
-    console.log(menuSections);
+    // console.log(menuSections);
 
     _.each(menuSections, function (menuSection) {
       $('.menuSection').append(menuSection);
-      console.log(menuSection);
+      // console.log(menuSection);
     });
 
     let arrayofArrays = _.values(menuResponse);
@@ -119,7 +151,7 @@ let menuPromise = $.getJSON(menuURL);
       // console.log(menuSection);
       return x.values;
       $('.menuSection').append(x);
-      console.log(arrayOfSections);
+      // console.log(arrayOfSections);
       });
     });
 
@@ -129,9 +161,30 @@ let menuPromise = $.getJSON(menuURL);
 
 
 
-// let flickrPromise = $.getJSON(flickrURL);
-//   flickrPromise.then( function (flickrResponse) {
-//     console.log(flickrResponse);
-//   });
+let flickrPromise = $.getJSON(flickrURL);
+  
+
+  flickrPromise.then( function (flickrResponse) {
+    // console.log(flickrResponse);
+    let arrayOfPhotos = flickrResponse.photos.photo;
+    // console.log(arrayOfPhotos);
+    let arrayOfImgUrls = _.map(arrayOfPhotos, function (photo){ 
+    return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg"
+    });
+    let numberOfImages = 5
+    let sampleOfImages = _.sample(arrayOfImgUrls, numberOfImages);
+    // console.log(sampleOfImages);
+    _.each(sampleOfImages, function(randomImage) {
+        $('#imageContainer').append(
+            `<div class="imgContainerBox">
+              <img class="imgBox" src={randomImage}
+            </div>`
+        );
+    });
+
+  });
+
+
+
 
 }());
