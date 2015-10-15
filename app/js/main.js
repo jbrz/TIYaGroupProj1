@@ -36,15 +36,14 @@
 
   // menu Sections
   menuPromise.then(function (menuResponse) {
-    return menuResponse;
-    specialPromise.then(function (specialResponse) {
-      var specialItemId = _.values(_.pick(specialResponse, 'menu_item_id'));
-      var specialItemIdValue = _.first(specialItemId);
-    });
+    // specialPromise.then(function (specialResponse) {
+    //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
+    //   let specialItemIdValue = _.first(specialItemId);
+    // });
 
     // pulling the name of each section
     var menuSections = _.keys(menuResponse);
-    return menuSections;
+    // console.log(menuSections)
 
     //  Injecting Menu divs
     var menuTemplateString = $('#menuDiv').text();
