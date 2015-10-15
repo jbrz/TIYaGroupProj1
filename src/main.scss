@@ -1,10 +1,11 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 @import url(http://weloveiconfonts.com/api/?family=zocial);
+$bgcolor: #EFD9B4;
 
 body{
  /*//light black*/
- background-color: #1B1A18;
+ background-color: $bgcolor;
  margin-top: 3%;
  margin-left: 16%;
  margin-right: 16%;
@@ -126,12 +127,15 @@ h2 {
     margin: 0;
     padding: 0;
   }
+  .menuItemTop,.menuItemBottom {
+  width: 100%;
+  }
 }
 .accordionBg {
   width: 75%;
-  height: 5%;
-  // color Burgundy
-  background-color: #EFD9B4;
+ height: 5%;
+ // color Burgundy
+ background: linear-gradient(#EFD9B4, #DEC9AA);
 }
 .navPanel {
   // color White

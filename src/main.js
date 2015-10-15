@@ -1,6 +1,6 @@
 (function () {
 
-  // console.log('It Works!');
+  console.log('It Works!');
 
 
 
@@ -18,21 +18,10 @@
   let specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
 
 
-
-
-
 // newsBox
-  
-  // template function
-  // let newsBoxTemplate = _.template($('#newsBox').text());
 
-  // promise and confirmation
   let newsPromise = $.getJSON(newsURL);
-
-  newsPromise.then( function (newsResponse) {
-    // console.log(newsResponse);
-  });
-
+  
   // append newsTitle text
   newsPromise.then( function (newsResponse) {
     $('.newsTitle').append(newsResponse.title);
@@ -44,73 +33,39 @@
   });
 
 
-
-
-
-// specialBox
-  let specialPromise = $.getJSON(specialURL);
-
-
-
-
-
 // menuPromise
 
-// promise and confirmation
-let menuPromise = $.getJSON(menuURL);
+  let menuPromise = $.getJSON(menuURL);
+  let specialPromise = $.getJSON(specialURL);
 
   // menu Sections
   menuPromise.then( function (menuResponse) {
-    // console.log(menuResponse);
-
-
+    return menuResponse;
     specialPromise.then( function (specialResponse) {
-    // console.log(specialResponse);
-    
-    let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
-    
-    let specialItemIdValue = _.first(specialItemId);
-    
-    // console.log(specialItemIdValue);
-        });
-
-
-    // console.log(specialMenuItem);
-
-
-
-
-    console.log(arrayofArrays.join())
-
-     let x = _.each(arrayofArrays, function (array) {
-        _.filter(array, function (object) {
-            idValues = _.pick(object);
-            console.log(idValues);
-            return _.values(idValues) === '25';
-        });
+      let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
+      let specialItemIdValue = _.first(specialItemId);
     });
   
-
-
-
-
-
-
     // pulling the name of each section
     let menuSections = _.keys(menuResponse);
-    // console.log(menuSections);
+      return (menuSections);
 
-    _.each(menuSections, function (menuSection) {
-      $('.menuSection').append(menuSection);
-      // console.log(menuSection);
+
+
+    var templateStringSelect = $('#itemSelector').text();
+    var renderTemplate = _.template(templateString);
+    var renderSelector = _.template(templateStringSelect);
+
+    var templateString = $('#menuDiv').text();
+    let templateFunction = _.template(menuTemplateString);
+
+    _.each(menuSections, function (SectionTitle) {
+      console.log(SectionTitle);
+      $('.menuSection').append(SectionTitle);
     });
 
     let arrayofArrays = _.values(menuResponse);
     console.log(arrayofArrays);
-
-
-    let menuTemplateString = $('#divID').html();
-    let templateFunction = _.template(menuTemplateString);
 
     _.each(arrayofArrays, function (array) {
 

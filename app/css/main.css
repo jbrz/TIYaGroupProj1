@@ -9,7 +9,7 @@ html {
 
 body {
   /*//light black*/
-  background-color: #1B1A18;
+  background-color: #EFD9B4;
   margin-top: 3%;
   margin-left: 16%;
   margin-right: 16%; }
@@ -126,11 +126,13 @@ h2 {
   .content ul {
     margin: 0;
     padding: 0; }
+  .content .menuItemTop, .content .menuItemBottom {
+    width: 100%; }
 
 .accordionBg {
   width: 75%;
   height: 5%;
-  background-color: #EFD9B4; }
+  background: linear-gradient(#EFD9B4, #DEC9AA); }
 
 .navPanel {
   background-color: #FDFDFD;
