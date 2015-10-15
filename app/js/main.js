@@ -40,26 +40,72 @@
   var specialPromise = $.getJSON(specialURL);
 
   specialPromise.then(function (specialResponse) {
-    console.log(specialResponse);
+    // console.log(specialResponse);
   });
 
-  // menuPromis
+  // menuPromise
 
   // promise and confirmation
   var menuPromise = $.getJSON(menuURL);
 
-  // appetizers
+  // menu Sections
   menuPromise.then(function (menuResponse) {
     console.log(menuResponse);
-    var appetizerMenu = menuResponse.appetizers;
-    console.log(appetizerMenu);
 
-    _.each(appetizerMenu, function (menuItem) {
-      $('.appetizerMenu').append(menuItem.item);
-      console.log(menuItem.item);
+    // pulling the name of each section
+    var menuSections = _.keys(menuResponse);
+    console.log(menuSections);
+
+    _.each(menuSections, function (menuSection) {
+      $('.menuSection').append(menuSection);
+      console.log(menuSection);
+    });
+
+    var arrayofArrays = _.values(menuResponse);
+    console.log(arrayofArrays);
+
+    var menuTemplateString = $('#divID').html();
+    var templateFunction = _.template(menuTemplateString);
+
+    _.each(arrayofArrays, function (array) {
+
+      _.each(array, function (object) {
+
+        var objectItem = templateFunction(object.item);
+        var objectPrice = templateFunction(object.price);
+        var objectDescrip = templateFunction(object.description);
+
+        $('.menuItemName').append(objectItem);
+        $('.menuItemPrice').append(objectPrice);
+        $('.menuItemDescription').append(objectDescrip);
+
+        if (object.allergy > 0) {
+          $('.icons').addClass($('showAllergy'));
+        };
+
+        if (object.favorite > 0) {
+          $('.icons').addClass($('showFavorite'));
+        };
+
+        if (object.spicy > 0) {
+          $('.icons').addClass($('showSpicy'));
+        };
+
+        if (object.vegan > 0) {
+          $('.icons').addClass($('showVegan'));
+        };
+      });
+    });
+
+    var arrayOfSections = _.pick(menuResponse, function (menuSection) {
+      _.each(menuSection, function (x) {
+        // console.log(menuSection);
+        return x.values;
+        $('.menuSection').append(x);
+        console.log(arrayOfSections);
+      });
     });
   });
-  //
 
   // let flickrPromise = $.getJSON(flickrURL);
   //   flickrPromise.then( function (flickrResponse) {
