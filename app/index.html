@@ -12,6 +12,7 @@
   <div class="Header">
   </div>
 
+
   <div class="container">
     
     <div class="banner">
@@ -19,15 +20,52 @@
     </div>
 
     <div class="boxes">
-      <div class="box1"><img src="http://www.fillmurray.com/300/240"></div>
-      <div class="box2"><img src="http://www.placecage.com/300/240"></div>
+      <div class="box1">
+        <p class="boxTitle">
+          Latest News
+        </p>
+        <p class="newsTitle">
+          <script type=text/template>
+            <%= title %>
+          </script>
+        </p>
+        <p class="newsPost">
+          <script type=text/template>
+            <%= post %>
+          </script>
+        </p>
+      </div>
+
+      <div class="box2">
+        <p class="boxTitle">
+          Today's Special
+      </div>
+
       <div class="box3">
+        <p class="boxTitle">
+          Our Location
+        </p>
         <iframe
            width="265"
            height="100"
            frameborder="0" style="border:0"
            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwhu5p1I_q2AFctjDPPDmoBEH-YZY4mjc&amp;q=721+Miami+Cir+NE+Atlanta,+GA" allowfullscreen>
         </iframe>
+         <p>
+          721 Miami Cir NE Atlanta, GA
+         </p>
+         <span>
+           Phone number
+         </span>
+         <span>
+           Phone number 2
+         </span>
+         <a href="#">
+           Map
+         </a>
+         <a href="#">
+           Directions
+         </a>
       </div>
     </div>
 
@@ -62,6 +100,7 @@
   </div>
 
 </div>
+
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
 </body>
