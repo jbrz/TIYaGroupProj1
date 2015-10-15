@@ -107,14 +107,62 @@ h2 {
   overflow: hidden;
   border: 5px solid #FDFDFD;
   background-color: #EFD9B4; }
+  .content ul {
+    margin: 0;
+    padding: 0; }
+
+.accordionBg {
+  width: 75%;
+  height: 5%;
+  background-color: #EFD9B4; }
+
+.navPanel {
+  background-color: #FDFDFD;
+  margin-top: 0;
+  padding: 3%; }
+
+.content nav li:hover {
+  color: #7B1F35;
+  font-weight: bold; }
+
+.content nav li.active {
+  background-color: #EFD9B4;
+  color: #7B1F35;
+  padding: 3.5%;
+  border-radius: 20% 20% 0 0; }
+
+.content nav li.hidden {
+  background-color: #FDFDFD; }
+
+.content .accordion {
+  color: #7B1F35;
+  background-color: #EFD9B4; }
+
+.content .accordion.active {
+  display: block;
+  color: #FDFDFD;
+  background-color: #EFD9B4; }
 
 h3 {
   font-family: Helvetica, sans-serif;
   color: #7B1F35;
   font-size: 13px; }
 
-footer {
-  background-color: #1B1A18; }
+form {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30; }
+
+form input {
+  width: 100%;
+  border: 1px solid #897F7D;
+  border-radius: 4%; }
+
+form .preference {
+  margin-right: 5%; }
+
+form input.notes {
+  height: 70px; }
 
 li {
   list-style-type: none;
@@ -132,3 +180,28 @@ p {
   color: #2C272B;
   margin: 10%;
   text-align: justify; }
+
+footer {
+  height: 45px;
+  background-color: #EFD9B4;
+  text-align: left; }
+
+h5 {
+  font-family: "Great Vibes", sans-serif;
+  font-weight: lighter;
+  /*Brown*/
+  color: #7B1F35;
+  font-size: 20px;
+  margin: 0;
+  margin-top: 1%;
+  margin-left: 3%;
+  float: left; }
+
+p.subText {
+  color: #FDFDFD;
+  margin: 0;
+  width: 50%;
+  position: relative; }
+
+p.subText span {
+  color: #7B1F35; }

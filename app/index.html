@@ -43,30 +43,58 @@
     </div>
 
     <div class="content">
-      <ul class="">
-        <li>
-        <nav>
-            <li class="nav">Our Story</li>
-            <li class="nav">Menu</li>
-            <li class="nav">Reservations</li>
+      <ul>
+        <nav class="navPanel">
+            <li rel="panel1" class="active">Our Story</li>
+            <li rel="panel2">Menu</li>
+            <li rel="panel3">Reservations</li>
         </nav>
-        <li>  
-          <p class="accordion1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </li>
-        <li>
-          <p class="accordion2">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-        </li>
-        <li>
-          <p class="accordion3">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-        </li>
+        <div id="accordion1" class="accordion">
+          <ul class="accordionBg">  
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          </ul>
+        </div>
+        <div id="accordion2" class="accordion">
+          <ul>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+          </ul>
+        </div>
+        <div id="accordion3" class="accordion">
+          <ul>
+            <form class="reservationTab">
+              <li>Full Name:</li>
+              <br></br>
+                <input class="fullName" placeholder ="Full Name" />
+              <br></br>
+              <li>Number of Guest:</li>
+              <br></br>
+                <input class="guest" placeholder ="Size of party" />
+              <br></br>
+              <li>Date & Time:</li>
+              <br></br>
+                <input class="date" placeholder ="mm/dd/yy, 00:00" />
+              <br></br>
+              <li>Special Notes:</li>
+              <br></br>
+                <input class="notes" placeholder ="Do you have any special request? Are you celebrating a special Event?" />
+              <br></br>
+              <li class="preference">Seating Preference:</li>
+              <select>
+              <option>Indoor</option>
+              <option>Outdoor</option>
+              <option>Booth</option>
+              <br></br>
+              <button>Reserve Table</button>
+            </form>
+          </ul>
+        </div>
       </ul>
     </div>
 
-    </div>
-
-<!--     <footer>
-      <h5>J.Bam's</h5>
-    </footer> -->
+  <footer>
+    <h5>J.Bam's</h5>
+    <p class="subText">Address here   <span>::</span>   (404) 123-4567   <span>::</span>   email</p>
+  </footer>
 
   </div>
 
