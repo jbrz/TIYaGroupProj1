@@ -1,35 +1,24 @@
 "use strict";
 
 (function () {
+
   console.log('It Works!');
 
-  // URLs for API data
-
   var tagSearch = "food";
-
   var flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags=' + tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
-
   var menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
-
   var newsURL = 'https://json-data.herokuapp.com/restaurant/news/1';
-
   var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
-
-  // newsBox
 
   var newsPromise = $.getJSON(newsURL);
 
-  // append newsTitle text
   newsPromise.then(function (newsResponse) {
     $('.newsTitle').append(newsResponse.title);
   });
 
-  // append newsPost text
   newsPromise.then(function (newsResponse) {
     $('.newsPost').append(newsResponse.post);
   });
-
-  // menuPromise
 
   var menuPromise = $.getJSON(menuURL);
   var specialPromise = $.getJSON(specialURL);
@@ -44,121 +33,71 @@
     //   let specialItemIdValue = _.first(specialItemId);
     // });
 
-    // pulling the name and item array of each section
     var menuSections = _.keys(menuResponse);
-    //   console.log(menuSections);
     var arrayofArrays = _.values(menuResponse);
-    //   console.log(arrayofArrays);
 
-    //  Injecting Menu <div>s
-    var menuTemplateString = $('#menuDiv').text();
-    var renderTemplate = _.template(menuTemplateString);
     var appetizers = _.pick(menuResponse, 'appetizers');
     console.log(appetizers);
-    // let entrees = _.pick(menuResponse, 'entrees');
-    // console.log(entrees);
-    // let sides = _.pick(menuResponse, 'sides');
-    // console.log(sides);
+
+    var entrees = _.pick(menuResponse, 'entrees');
+    console.log(entrees);
+
+    var sides = _.pick(menuResponse, 'sides');
+    console.log(sides);
 
     _.each(appetizers, function (object) {
       var appTemplateString = $('#appetizers').text();
       var renderApps = _.template(appTemplateString);
       var appHTML = renderApps(object);
-      $('.menu').append(appHTML);
+      $('.appetizers').append(appHTML);
 
-      // appetizers.forEach(function (item){
-      //   let itemTemplateString = $('#menuItem').text();
-      //   let renderItems = _.template(itemTemplateString);
-      //   let itemHTML = renderItems(item);
-      //   $('.appetizerItems').append(itemHTML);
-      // });
+      // if (object.allergy > 0) {
+      //   $('.icons').addClass($('showAllergy'));
+      // };
+
+      // if (object.favorite > 0) {
+      //   $('.icons').addClass($('showFavorite'))
+      // };
+
+      // if (object.spicy > 0) {
+      //   $('.icons').addClass($('showSpicy'));
+      // };
+
+      // if (object.vegan > 0) {
+      //   $('.icons').addClass($('showVegan'));
+      // };
     });
 
-    // _.each(entrees, function (object){
-    //   let entTemplateString = $('#entrees').text();
-    //   let renderEnts = _.template(entTemplateString);
-    //   let entHTML = renderEnts(object);
-    //   $('.menu').append(entHTML);
-
-    //   // entrees.forEach(function (item){
-    //   //   let itemTemplateString = $('#menuItem').text();
-    //   //   let renderItems = _.template(itemTemplateString);
-    //   //   let itemHTML = renderItems(item);
-    //   //   $('.entreeItems').append(itemHTML);
-    //   // })
-    // });
-
-    // _.each(sides, function (object){
-    //   let sideTemplateString = $('#sides').text();
-    //   let renderSides = _.template(sideTemplateString);
-    //   let sideHTML = renderSides(object);
-    //   $('.menu').append(sideHTML);
-
-    // sides.forEach(function (item){
-    //   let itemTemplateString = $('#menuItem').text();
-    //   let renderItems = _.template(itemTemplateString);
-    //   let itemHTML = renderItems(item);
-    //   $('.sideItems').append(itemHTML);
-    // });
-    // });
-
-    //  Filling Menu <div>s
-
-    _.each(arrayofArrays, function (array) {
-
-      _.each(array, function (object) {
-
-        var objectItem = renderTemplate(object.item);
-        var objectPrice = renderTemplate(object.price);
-        var objectDescrip = renderTemplate(object.description);
-
-        $('.menuItemName').append(objectItem);
-        $('.menuItemPrice').append(objectPrice);
-        $('.menuItemDescription').append(objectDescrip);
-
-        if (object.allergy > 0) {
-          $('.icons').addClass($('showAllergy'));
-        };
-
-        if (object.favorite > 0) {
-          $('.icons').addClass($('showFavorite'));
-        };
-
-        if (object.spicy > 0) {
-          $('.icons').addClass($('showSpicy'));
-        };
-
-        if (object.vegan > 0) {
-          $('.icons').addClass($('showVegan'));
-        };
-      });
+    _.each(entrees, function (object) {
+      var entreesTemplateString = $('#entrees').text();
+      var renderApps = _.template(entreesTemplateString);
+      var entreeHTML = renderApps(object);
+      $('.entrees').append(entreeHTML);
     });
 
-    // Attempt to use arrayOfSections
-    // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
-    //   _.each(menuSection, function (x) {
-    //     console.log(menuSection);
-    //     return x.values;
-    //     $('.menuSection').append(x);
-    //     console.log(arrayOfSections);
-    //   });
-    // });
+    _.each(sides, function (object) {
+      var sidesTemplateString = $('#sides').text();
+      var renderApps = _.template(sidesTemplateString);
+      var sidesHTML = renderApps(object);
+      $('.sides').append(sidesHTML);
+    });
   });
 
   var flickrPromise = $.getJSON(flickrURL);
 
   flickrPromise.then(function (flickrResponse) {
-    // console.log(flickrResponse);
-    var arrayOfPhotos = flickrResponse.photos.photo;
-    // console.log(arrayOfPhotos);
+    console.log(flickrResponse);
+    var photosObject = flickrResponse.photos;
+    console.log(photosObject);
     var arrayOfImgUrls = _.map(arrayOfPhotos, function (photo) {
       return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
     });
     var numberOfImages = 5;
     var sampleOfImages = _.sample(arrayOfImgUrls, numberOfImages);
     // console.log(sampleOfImages);
+
     _.each(sampleOfImages, function (randomImage) {
-      $('#imageContainer').append("<div class=\"imgContainerBox\">\n              <img class=\"imgBox\" src={randomImage}\n            </div>");
+      $('#imageContainer').append("<div class=\"imgContainerBox\">\n              <img class=\"imgBox\" src={randomImage}</div>");
     });
   });
 })();

@@ -95,7 +95,13 @@
             <li rel="panel3">Reservations</li>
           </ul>
         </nav>
-        <div class="accordion1 menu">
+        <div class="menu">
+          <div class="appetizers">
+          </div>
+          <div class="entrees">
+          </div>
+          <div class="sides">
+          </div>
         </div>
         <div id="accordion2" class="accordion">
           <ul>
@@ -153,24 +159,33 @@
   <script src="js/main.js"></script>
 
 <!-- Menu HTML injection script -->
+
+
   <script type="text/template" id="appetizers">
-    <div class="appetizerWrap"><p class="appetizerTitle">Appetizers</p>
-    <ul class="appetizerItems">
-    </ul>
-    </div>
+    <p class="sectionTitle">Appetizers</p>
+    <p class="menuItemName"><%= item  %></p>
+    <p class="menuItemPrice"><%= price %></p>
+    <p class="menuItemDescription"><%= description %></p>
   </script>
-  <!-- <script type="text/template" id="entrees">
-    <div class="entreeWrap" id=""><p>Appetizers</p>
-    <ul class="entreeItems">
-    </ul>
-    </div>
+
+  <script type="text/template" id="entrees">
+    <p class="sectionTitle">Entrees</p>
+    <p class="menuItemName"><%= item  %></p>
+    <p class="menuItemPrice"><%= price %></p>
+    <p class="menuItemDescription"><%= description %></p>
   </script>
+
   <script type="text/template" id="sides">
-    <div class="<%= [] %>" id=""><p><%= [] %></p>
-    <ul id="<%= [] %>">
-    </ul>
-    </div>
-  </script> -->
+    <p class="sectionTitle">Sides</p>
+    <p class="menuItemName"><%= item  %></p>
+    <p class="menuItemPrice"><%= price %></p>
+    <p class="menuItemDescription"><%= description %></p>
+  </script>
+
+  <script type="text/template" id="pictureBlock">
+  <img src=<%= url %> >
+  </script>
+
 
 <!-- MenuITEM HTML injection script -->
   <script type="text/template" id="menuItem">
