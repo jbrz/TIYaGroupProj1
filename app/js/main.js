@@ -51,8 +51,8 @@
     var menuTemplateString = $('#menuDiv').text();
     var renderTemplate = _.template(menuTemplateString);
 
-    _.each(arrayofArrays, function (SectionTitle) {
-      var menuHTML = renderTemplate(menuSections);
+    _.each(menuSections, function (SectionTitle) {
+      var menuHTML = renderTemplate(SectionTitle);
       $('.menu').append(menuHTML);
     });
 
