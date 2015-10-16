@@ -49,7 +49,7 @@
   
 // pulling the name of each section
     let menuSections = _.keys(menuResponse);
-      // console.log(menuSections)
+      console.log(menuSections)
 
 //  Injecting Menu divs
     var menuTemplateString = $('#menuDiv').text();
@@ -57,7 +57,7 @@
 
     _.each(menuSections, function (SectionTitle) {
       var menuHTML = renderTemplate(SectionTitle)
-      $('.menu').append(SectionTitle);
+      $('.menu').append(menuHTML);
     });
 
 //  Menu div injection

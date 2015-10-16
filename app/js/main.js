@@ -31,43 +31,21 @@
 
   // menuPromise
 
+  // promise and confirmation
+
   var menuPromise = $.getJSON(menuURL);
   var specialPromise = $.getJSON(specialURL);
 
   // menu Sections
   menuPromise.then(function (menuResponse) {
-<<<<<<< HEAD
-    console.log(menuResponse);
-
-    specialPromise.then(function (specialResponse) {
-      // console.log(specialResponse);
-
-      var specialItemId = _.values(_.pick(specialResponse, 'menu_item_id'));
-
-      var specialItemIdValue = _.first(specialItemId);
-
-      // console.log(specialItemIdValue);
-    });
-
-    // console.log(specialMenuItem);
-
-    var z = _.filter(arrayofArrays, function (x) {
-      return _.filter(x, function (y) {
-        return _.propertyOf(y)('id') !== '1';
-      });
-    });
-=======
     // specialPromise.then(function (specialResponse) {
     //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
     //   let specialItemIdValue = _.first(specialItemId);
     // });
->>>>>>> 083297806907a5a0dd9cf5b1a3aa6bc87ea94aec
-
-    console.log(z);
 
     // pulling the name of each section
     var menuSections = _.keys(menuResponse);
-    // console.log(menuSections)
+    console.log(menuSections);
 
     //  Injecting Menu divs
     var menuTemplateString = $('#menuDiv').text();
@@ -75,20 +53,13 @@
 
     _.each(menuSections, function (SectionTitle) {
       var menuHTML = renderTemplate(SectionTitle);
-      $('.menu').append(SectionTitle);
+      $('.menu').append(menuHTML);
     });
 
     //  Menu div injection
     var arrayofArrays = _.values(menuResponse);
-<<<<<<< HEAD
-    // console.log(arrayofArrays);
-
-    var menuTemplateString = $('#divID').html();
-    var templateFunction = _.template(menuTemplateString);
-
-=======
     console.log(arrayofArrays);
->>>>>>> 083297806907a5a0dd9cf5b1a3aa6bc87ea94aec
+
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
