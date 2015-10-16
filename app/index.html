@@ -153,12 +153,25 @@
   <script src="js/main.js"></script>
 
 <!-- Menu HTML injection script -->
-  <script type="text/template" id="menuDiv">
-    <div class='<%= []  %>'><p><%= [] %></p>
-    <ul id=<%= '[]' %>>
+
+  <script type="text/template" id="appetizers">
+    <div class="appetizerWrap"><p class="appetizerTitle">Appetizers</p>
+    <ul class="appetizerItems">
     </ul>
     </div>
   </script>
+  <!-- <script type="text/template" id="entrees">
+    <div class="entreeWrap" id=""><p>Appetizers</p>
+    <ul class="entreeItems">
+    </ul>
+    </div>
+  </script>
+  <script type="text/template" id="sides">
+    <div class="<%= [] %>" id=""><p><%= [] %></p>
+    <ul id="<%= [] %>">
+    </ul>
+    </div>
+  </script> -->
 
 <!-- MenuITEM HTML injection script -->
   <script type="text/template" id="menuItem">
@@ -166,11 +179,11 @@
       <div class="menuItemWrap">
         <div class="menuItemTop">
           <div class="menuItemName">
-          <%= item %></div><div class="spacer"><div class="bgimage"></div</div>
-          <div class="menuItemPrice"><%= price %></div>
+          <%= appetizers.item %></div><div class="spacer"><div class="bgimage"></div</div>
+          <div class="menuItemPrice"><%= appetizers.price %></div>
         </div>
         <div class="menuItemBottom">
-          <div class="menuItemDescription"><%= description %></div>
+          <div class="menuItemDescription"><%= appetizers.description %></div>
           <div class="info"><div class="icons"></div</div>
         </div>
       </div>

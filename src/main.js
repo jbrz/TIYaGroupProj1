@@ -26,7 +26,11 @@
   let specialPromise = $.getJSON(specialURL);
 
 
-  menuPromise.then(function (menuResponse) {
+// menu Sections
+  menuPromise.then(function(menuResponse) {
+    console.log(menuResponse);
+    
+// Specials section
     // specialPromise.then(function (specialResponse) {
     //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
     //   let specialItemIdValue = _.first(specialItemId);
@@ -46,18 +50,71 @@
   let renderTemplate = _.template(menuTemplateString);
 
   
-    _.each(menuSections, function (sectionTitle) {
-      var menuHTML = renderTemplate(sectionTitle);
-      $('.menu').append(menuHTML);
+
+// pulling the name and item array of each section
+    let menuSections = _.keys(menuResponse);
+    //   console.log(menuSections);
+    let arrayofArrays = _.values(menuResponse);
+    //   console.log(arrayofArrays);
+
+
+//  Injecting Menu <div>s
+    let menuTemplateString = $('#menuDiv').text();
+    let renderTemplate = _.template(menuTemplateString);
+    let appetizers = _.pick(menuResponse, 'appetizers');
+    console.log(appetizers);
+    // let entrees = _.pick(menuResponse, 'entrees');
+    // console.log(entrees);
+    // let sides = _.pick(menuResponse, 'sides');
+    // console.log(sides);
+
+
+    _.each(appetizers, function (object) {
+      let appTemplateString = $('#appetizers').text();
+      let renderApps = _.template(appTemplateString);
+      let appHTML = renderApps(object);
+      $('.menu').append(appHTML);
+
+      // appetizers.forEach(function (item){
+      //   let itemTemplateString = $('#menuItem').text();
+      //   let renderItems = _.template(itemTemplateString);
+      //   let itemHTML = renderItems(item);
+      //   $('.appetizerItems').append(itemHTML);
+      // });
     });
 
+    // _.each(entrees, function (object){
+    //   let entTemplateString = $('#entrees').text();
+    //   let renderEnts = _.template(entTemplateString);
+    //   let entHTML = renderEnts(object);
+    //   $('.menu').append(entHTML);
 
-    _.each (menuResponse, function (x) {
-      _.each (menuSections, _.pick(x, menuSections))
+    //   // entrees.forEach(function (item){
+    //   //   let itemTemplateString = $('#menuItem').text();
+    //   //   let renderItems = _.template(itemTemplateString);
+    //   //   let itemHTML = renderItems(item);
+    //   //   $('.entreeItems').append(itemHTML);
+    //   // })
+    // });
 
-    })
+    // _.each(sides, function (object){
+    //   let sideTemplateString = $('#sides').text();
+    //   let renderSides = _.template(sideTemplateString);
+    //   let sideHTML = renderSides(object);
+    //   $('.menu').append(sideHTML);
+
+      // sides.forEach(function (item){
+      //   let itemTemplateString = $('#menuItem').text();
+      //   let renderItems = _.template(itemTemplateString);
+      //   let itemHTML = renderItems(item);
+      //   $('.sideItems').append(itemHTML);
+      // });
+    // });
 
 
+
+//  Filling Menu <div>s
+    
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
@@ -92,6 +149,7 @@
 
     });
 
+// Attempt to use arrayOfSections
     // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
     //   _.each(menuSection, function (x) {
     //     console.log(menuSection);
@@ -100,7 +158,6 @@
     //     console.log(arrayOfSections);
     //   });
     // });
-
 
   });
 
