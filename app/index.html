@@ -97,10 +97,13 @@
         </nav>
         <div class="menu">
           <div class="appetizers">
+            <p class="sectionTitle">Appetizers</p>
           </div>
           <div class="entrees">
+          <p class="sectionTitle">Entrees</p>
           </div>
           <div class="sides">
+          <p class="sectionTitle">Sides</p>
           </div>
         </div>
         <div id="accordion2" class="accordion">
@@ -119,7 +122,7 @@
               <br></br>
                 <input class="guest" placeholder ="Size of party" />
               <br></br>
-              <li>Date & Time:</li>
+              <li>Date &amp; Time:</li>
               <br></br>
                 <input class="date" placeholder ="mm/dd/yy, 00:00" />
               <br></br>
@@ -130,9 +133,10 @@
               <br></br>
               <li class="preference">Seating Preference:</li>
               <select>
-              <option>Indoor</option>
-              <option>Outdoor</option>
-              <option>Booth</option>
+                <option>Indoor</option>
+                <option>Outdoor</option>
+                <option>Booth</option>
+              </select>
               <br></br>
               <button>Reserve Table</button>
             </ul>
@@ -144,6 +148,10 @@
       <div class="photostream">
       </div>
     </div>
+
+  <script type="text/template" id="photoObject">
+    <img class="photo" src="https://farm<%= farm %>.staticflickr.com/<%= server %>/<%= id %>_<%= secret %>.jpg">
+  </script>
 
 <!-- Footer -->
     <footer>
@@ -159,49 +167,23 @@
   <script src="js/main.js"></script>
 
 <!-- Menu HTML injection script -->
-
-
   <script type="text/template" id="appetizers">
-    <p class="sectionTitle">Appetizers</p>
     <p class="menuItemName"><%= item  %></p>
     <p class="menuItemPrice"><%= price %></p>
     <p class="menuItemDescription"><%= description %></p>
   </script>
 
   <script type="text/template" id="entrees">
-    <p class="sectionTitle">Entrees</p>
     <p class="menuItemName"><%= item  %></p>
     <p class="menuItemPrice"><%= price %></p>
     <p class="menuItemDescription"><%= description %></p>
   </script>
 
   <script type="text/template" id="sides">
-    <p class="sectionTitle">Sides</p>
     <p class="menuItemName"><%= item  %></p>
     <p class="menuItemPrice"><%= price %></p>
     <p class="menuItemDescription"><%= description %></p>
   </script>
 
-  <script type="text/template" id="pictureBlock">
-  <img src=<%= url %> >
-  </script>
-
-
-<!-- MenuITEM HTML injection script -->
-  <script type="text/template" id="menuItem">
-    <li class="menuListItem">
-      <div class="menuItemWrap">
-        <div class="menuItemTop">
-          <div class="menuItemName">
-          <%= appetizers.item %></div><div class="spacer"><div class="bgimage"></div</div>
-          <div class="menuItemPrice"><%= appetizers.price %></div>
-        </div>
-        <div class="menuItemBottom">
-          <div class="menuItemDescription"><%= appetizers.description %></div>
-          <div class="info"><div class="icons"></div</div>
-        </div>
-      </div>
-    </li>
-  </script>
 </body>
 </html>
