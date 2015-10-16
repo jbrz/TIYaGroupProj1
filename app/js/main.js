@@ -43,9 +43,14 @@
     //   let specialItemIdValue = _.first(specialItemId);
     // });
 
-    // pulling the name of each section
+    // pulling the name and item array of each section
     var menuSections = _.keys(menuResponse);
     console.log(menuSections);
+<<<<<<< HEAD
+=======
+    var arrayofArrays = _.values(menuResponse);
+    console.log(arrayofArrays);
+>>>>>>> 9c1fbd927644669ffda90abaae5f4f8b5e7207d8
 
     //  Injecting Menu divs
     var menuTemplateString = $('#menuDiv').text();
@@ -57,16 +62,19 @@
     });
 
     //  Menu div injection
+<<<<<<< HEAD
     var arrayofArrays = _.values(menuResponse);
     console.log(arrayofArrays);
+=======
+>>>>>>> 9c1fbd927644669ffda90abaae5f4f8b5e7207d8
 
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
 
-        var objectItem = templateFunction(object.item);
-        var objectPrice = templateFunction(object.price);
-        var objectDescrip = templateFunction(object.description);
+        var objectItem = renderTemplate(object.item);
+        var objectPrice = renderTemplate(object.price);
+        var objectDescrip = renderTemplate(object.description);
 
         $('.menuItemName').append(objectItem);
         $('.menuItemPrice').append(objectPrice);

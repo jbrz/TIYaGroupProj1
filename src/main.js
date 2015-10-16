@@ -47,9 +47,13 @@
     //   let specialItemIdValue = _.first(specialItemId);
     // });
   
-// pulling the name of each section
+// pulling the name and item array of each section
     let menuSections = _.keys(menuResponse);
       console.log(menuSections)
+
+    let arrayofArrays = _.values(menuResponse);
+      console.log(arrayofArrays);
+
 
 //  Injecting Menu divs
     var menuTemplateString = $('#menuDiv').text();
@@ -61,16 +65,15 @@
     });
 
 //  Menu div injection
-    let arrayofArrays = _.values(menuResponse);
-    console.log(arrayofArrays);
+
 
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
         
-        let objectItem    = templateFunction(object.item);
-        let objectPrice   = templateFunction(object.price);
-        let objectDescrip = templateFunction(object.description);
+        let objectItem    = renderTemplate(object.item);
+        let objectPrice   = renderTemplate(object.price);
+        let objectDescrip = renderTemplate(object.description);
 
 
         $('.menuItemName').append(objectItem);
