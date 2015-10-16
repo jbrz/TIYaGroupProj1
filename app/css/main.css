@@ -164,7 +164,13 @@ section {
 .accordion {
   overflow: hidden;
   background-color: #EFD9B4;
-  width: 100%;
+  width: 100%; }
+
+.hide {
+  height: 0;
+  overflow: hidden; }
+
+.show {
   height: 100%; }
 
 h3 {
