@@ -118,6 +118,10 @@ section {
   overflow: hidden;
   font-family: Georgia, serif;
   text-align: center; }
+  .box3 span {
+    font-size: 12px; }
+  .box3 a {
+    font-size: 12px; }
 
 .main {
   float: right; }
@@ -208,14 +212,23 @@ h2 {
 .content nav li.hidden {
   background-color: #FDFDFD; }
 
-.content .accordion {
-  color: #7B1F35;
-  background-color: #EFD9B4; }
+#accordion {
+  overflow: hidden;
+  background-color: #EFD9B4;
+  width: 100%;
+  height: 100%; }
 
-.content .accordion.active {
-  display: block;
-  color: #FDFDFD;
-  background-color: #EFD9B4; }
+#accordion1 {
+  overflow: hidden;
+  width: 100%; }
+
+#accordion2 {
+  overflow: hidden;
+  width: 100%; }
+
+#accordion3 {
+  overflow: hidden;
+  width: 100%; }
 
 h3 {
   font-family: Helvetica, sans-serif;

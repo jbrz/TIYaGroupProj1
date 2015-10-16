@@ -104,6 +104,12 @@ section {
   overflow: hidden;
   font-family: Georgia, serif;
   text-align: center;
+  span{
+    font-size: 12px;
+  }
+  a{
+    font-size: 12px;
+  }
 }
 
 .main {
@@ -216,21 +222,46 @@ h2 {
 
 .content nav li.hidden {
   background-color: #FDFDFD;
+
 }
 
-.content .accordion {
-  // display: none;
-  // color Burgundy
-  color: #7B1F35;
-  // bg Brown
+// .content .accordion {
+//   // display: none;
+//   // color Burgundy
+//   color: #7B1F35;
+//   // bg Brown
+//   background-color: #EFD9B4;
+// }
+// .content .accordion.active {
+//   display: block;
+//   // font white
+//   color: #FDFDFD;
+//   // bg Brown
+//   background-color: #EFD9B4;
+// }
+#accordion{
+  overflow: hidden;
   background-color: #EFD9B4;
+  width: 100%;
+  height: 100%;
 }
-.content .accordion.active {
-  display: block;
-  // font white
-  color: #FDFDFD;
-  // bg Brown
-  background-color: #EFD9B4;
+
+#accordion1{
+overflow: hidden;
+// display: none;
+width: 100%;
+}
+
+#accordion2{
+overflow: hidden;
+// display: none;
+width: 100%;
+}
+
+#accordion3{
+overflow: hidden;
+// display: none;
+width: 100%;
 }
 
 
