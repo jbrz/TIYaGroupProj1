@@ -1,8 +1,7 @@
-'use strict';
+"use strict";
 
 (function () {
-
-  // console.log('It Works!');
+  console.log('It Works!');
 
   // URLs for API data
 
@@ -18,15 +17,7 @@
 
   // newsBox
 
-  // template function
-  // let newsBoxTemplate = _.template($('#newsBox').text());
-
-  // promise and confirmation
   var newsPromise = $.getJSON(newsURL);
-
-  newsPromise.then(function (newsResponse) {
-    // console.log(newsResponse);
-  });
 
   // append newsTitle text
   newsPromise.then(function (newsResponse) {
@@ -38,16 +29,14 @@
     $('.newsPost').append(newsResponse.post);
   });
 
-  // specialBox
-  var specialPromise = $.getJSON(specialURL);
-
   // menuPromise
 
-  // promise and confirmation
   var menuPromise = $.getJSON(menuURL);
+  var specialPromise = $.getJSON(specialURL);
 
   // menu Sections
   menuPromise.then(function (menuResponse) {
+<<<<<<< HEAD
     console.log(menuResponse);
 
     specialPromise.then(function (specialResponse) {
@@ -67,24 +56,39 @@
         return _.propertyOf(y)('id') !== '1';
       });
     });
+=======
+    // specialPromise.then(function (specialResponse) {
+    //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
+    //   let specialItemIdValue = _.first(specialItemId);
+    // });
+>>>>>>> 083297806907a5a0dd9cf5b1a3aa6bc87ea94aec
 
     console.log(z);
 
     // pulling the name of each section
     var menuSections = _.keys(menuResponse);
-    // console.log(menuSections);
+    // console.log(menuSections)
 
-    _.each(menuSections, function (menuSection) {
-      $('.menuSection').append(menuSection);
-      // console.log(menuSection);
+    //  Injecting Menu divs
+    var menuTemplateString = $('#menuDiv').text();
+    var renderTemplate = _.template(menuTemplateString);
+
+    _.each(menuSections, function (SectionTitle) {
+      var menuHTML = renderTemplate(SectionTitle);
+      $('.menu').append(SectionTitle);
     });
 
+    //  Menu div injection
     var arrayofArrays = _.values(menuResponse);
+<<<<<<< HEAD
     // console.log(arrayofArrays);
 
     var menuTemplateString = $('#divID').html();
     var templateFunction = _.template(menuTemplateString);
 
+=======
+    console.log(arrayofArrays);
+>>>>>>> 083297806907a5a0dd9cf5b1a3aa6bc87ea94aec
     _.each(arrayofArrays, function (array) {
 
       _.each(array, function (object) {
@@ -115,14 +119,14 @@
       });
     });
 
-    var arrayOfSections = _.pick(menuResponse, function (menuSection) {
-      _.each(menuSection, function (x) {
-        // console.log(menuSection);
-        return x.values;
-        $('.menuSection').append(x);
-        // console.log(arrayOfSections);
-      });
-    });
+    // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
+    //   _.each(menuSection, function (x) {
+    //     console.log(menuSection);
+    //     return x.values;
+    //     $('.menuSection').append(x);
+    //     console.log(arrayOfSections);
+    //   });
+    // });
   });
 
   var flickrPromise = $.getJSON(flickrURL);
@@ -138,7 +142,7 @@
     var sampleOfImages = _.sample(arrayOfImgUrls, numberOfImages);
     // console.log(sampleOfImages);
     _.each(sampleOfImages, function (randomImage) {
-      $('#imageContainer').append('<div class="imgContainerBox">\n              <img class="imgBox" src={randomImage}\n            </div>');
+      $('#imageContainer').append("<div class=\"imgContainerBox\">\n              <img class=\"imgBox\" src={randomImage}\n            </div>");
     });
   });
 })();

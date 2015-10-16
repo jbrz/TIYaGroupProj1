@@ -1,13 +1,13 @@
+"use strict";
+
 (function () {
-
-  // console.log('It Works!');
-
+  console.log('It Works!');
 
 
 // URLs for API data
 
   
-  let tagSearch = "food"
+  let tagSearch = "food";
 
   let flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags='+ tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
 
@@ -18,97 +18,51 @@
   let specialURL = 'https://json-data.herokuapp.com/restaurant/special/1';
 
 
-
-
-
 // newsBox
-  
-  // template function
-  // let newsBoxTemplate = _.template($('#newsBox').text());
 
-  // promise and confirmation
   let newsPromise = $.getJSON(newsURL);
-
-  newsPromise.then( function (newsResponse) {
-    // console.log(newsResponse);
-  });
-
+  
   // append newsTitle text
-  newsPromise.then( function (newsResponse) {
+  newsPromise.then(function (newsResponse) {
     $('.newsTitle').append(newsResponse.title);
   });
 
   // append newsPost text
-  newsPromise.then( function (newsResponse) {
+  newsPromise.then(function (newsResponse) {
     $('.newsPost').append(newsResponse.post);
   });
-
-
-
-
-
-// specialBox
-  let specialPromise = $.getJSON(specialURL);
-
-
-
 
 
 // menuPromise
 
 // promise and confirmation
-let menuPromise = $.getJSON(menuURL);
 
-  // menu Sections
-  menuPromise.then( function (menuResponse) {
-    console.log(menuResponse);
+  let menuPromise = $.getJSON(menuURL);
+  let specialPromise = $.getJSON(specialURL);
 
-
-    specialPromise.then( function (specialResponse) {
-    // console.log(specialResponse);
-    
-    let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
-    
-    let specialItemIdValue = _.first(specialItemId);
-    
-    // console.log(specialItemIdValue);
-        });
-
-
-    // console.log(specialMenuItem);
-
-    
-
-    let z = _.filter (arrayofArrays, function (x) {
-      return _.filter (x, function (y) {
-        return _.propertyOf(y)('id') !== '1';
-      });
-    });
-
-    console.log(z);
-
+// menu Sections
+  menuPromise.then(function (menuResponse) {
+    // specialPromise.then(function (specialResponse) {
+    //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
+    //   let specialItemIdValue = _.first(specialItemId);
+    // });
   
-
-
-
-
-
-
-    // pulling the name of each section
+// pulling the name of each section
     let menuSections = _.keys(menuResponse);
-    // console.log(menuSections);
+      // console.log(menuSections)
 
-    _.each(menuSections, function (menuSection) {
-      $('.menuSection').append(menuSection);
-      // console.log(menuSection);
+//  Injecting Menu divs
+    var menuTemplateString = $('#menuDiv').text();
+    var renderTemplate = _.template(menuTemplateString);
+
+    _.each(menuSections, function (SectionTitle) {
+      var menuHTML = renderTemplate(SectionTitle)
+      $('.menu').append(SectionTitle);
     });
 
+//  Menu div injection
     let arrayofArrays = _.values(menuResponse);
-    // console.log(arrayofArrays);
-
-
-    let menuTemplateString = $('#divID').html();
-    let templateFunction = _.template(menuTemplateString);
+    console.log(arrayofArrays);
 
     _.each(arrayofArrays, function (array) {
 
@@ -144,14 +98,14 @@ let menuPromise = $.getJSON(menuURL);
 
     });
 
-    let arrayOfSections = _.pick(menuResponse, function (menuSection) {
-      _.each(menuSection, function (x) {
-      // console.log(menuSection);
-      return x.values;
-      $('.menuSection').append(x);
-      // console.log(arrayOfSections);
-      });
-    });
+    // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
+    //   _.each(menuSection, function (x) {
+    //     console.log(menuSection);
+    //     return x.values;
+    //     $('.menuSection').append(x);
+    //     console.log(arrayOfSections);
+    //   });
+    // });
 
 
   });
