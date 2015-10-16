@@ -6,7 +6,7 @@ $boxbg: #F0DAB2;
 $brown: #EFD9B4;
 $burgundy: #7B1F35;
 $boxborder: 5px solid white;
-$white: #FDFDFD
+$white: #FDFDFD;
 
 
 body {
@@ -159,7 +159,7 @@ section {
     }
     .content nav li.active {
       background-color: $brown;
-      color: ;
+      //color: ;
       padding: 3.5%;
       border-radius: 20% 20% 0 0;
     }
