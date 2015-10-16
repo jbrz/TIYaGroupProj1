@@ -9,14 +9,17 @@ html {
 
 body {
   /*//light black*/
-  background-color: #EFD9B4;
   margin-top: 3%;
   margin-left: 16%;
-  margin-right: 16%; }
+  margin-right: 16%;
+  background: linear-gradient(#897F7D, #1B1A18); }
 
 .pageWrap {
   margin: 0;
   padding: 0; }
+
+.container {
+  max-width: 100%; }
 
 h1 {
   margin: 1%;
@@ -37,11 +40,10 @@ h1 {
 .social {
   margin: 0;
   padding: 0;
-  background-color: white;
   float: right;
   margin-bottom: 1%; }
 
-[class*="zolical-"]:before {
+[class*="zocial-"]:before {
   color: white;
   font-family: 'zocial', sans-serif; }
 
@@ -80,19 +82,42 @@ section {
   width: 1000px;
   overflow: hidden; }
 
+.boxTitle {
+  color: #7B1F35;
+  font-family: Helvetica, sans-serif; }
+
 .box1 {
   float: left;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  border: 5px solid white;
+  width: 30%;
+  background-color: #F0DAB2;
+  height: 300px;
+  overflow: scroll;
+  font-family: Georgia, serif; }
 
 .box2 {
   float: left;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  border: 5px solid white;
+  width: 30%;
+  background-color: #F0DAB2;
+  height: 300px;
+  overflow: hidden;
+  font-family: Georgia, serif; }
 
 .box3 {
   float: left;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  border: 5px solid white;
+  width: 30%;
+  background-color: #F0DAB2;
+  height: 300px;
+  overflow: hidden;
+  font-family: Georgia, serif;
+  text-align: center; }
 
 .main {
   float: right; }
@@ -101,25 +126,56 @@ h2 {
   font-family: Helvetica, sans-serif;
   color: #7B1F35; }
 
+.photostream {
+  width: 20%;
+  float: right;
+  margin-top: 3%; }
+
 .photo1 {
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100px;
+  float: right;
+  border: 5px solid white;
+  background-color: #F0DAB2; }
 
 .photo2 {
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100px;
+  float: right;
+  border: 5px solid white;
+  background-color: #F0DAB2; }
 
 .photo3 {
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100px;
+  float: right;
+  border: 5px solid white;
+  background-color: #F0DAB2; }
 
 .photo4 {
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100px;
+  float: right;
+  border: 5px solid white;
+  background-color: #F0DAB2; }
 
 .photo5 {
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  width: 100%;
+  height: 100px;
+  float: right;
+  border: 5px solid white;
+  background-color: #F0DAB2; }
 
 .content {
   width: 75%;
   height: 50%;
   margin-top: 3%;
+  float: left;
   overflow: hidden;
   border: 5px solid #FDFDFD;
   background-color: #EFD9B4; }
@@ -202,7 +258,10 @@ p {
 footer {
   height: 45px;
   background-color: #EFD9B4;
-  text-align: left; }
+  text-align: left;
+  float: left;
+  margin-top: 3%;
+  width: 100%; }
 
 h5 {
   font-family: "Great Vibes", sans-serif;
