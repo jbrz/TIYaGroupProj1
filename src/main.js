@@ -35,148 +35,73 @@
     //   let specialItemId = _.values(_.pick(specialResponse,'menu_item_id'));
     //   let specialItemIdValue = _.first(specialItemId);
     // });
-  console.log(menuResponse);
-
-
-  let menuSections = _.keys(menuResponse);
-  console.log(menuSections);
-
-
-  let arrayofArrays = _.values(menuResponse);
-  console.log(arrayofArrays);
-
-
-  let menuTemplateString = $('#menuDiv').text();
-  let renderTemplate = _.template(menuTemplateString);
-
-  
-
-// pulling the name and item array of each section
+    
     let menuSections = _.keys(menuResponse);
-    //   console.log(menuSections);
     let arrayofArrays = _.values(menuResponse);
-    //   console.log(arrayofArrays);
 
-
-//  Injecting Menu <div>s
-    let menuTemplateString = $('#menuDiv').text();
-    let renderTemplate = _.template(menuTemplateString);
     let appetizers = _.pick(menuResponse, 'appetizers');
     console.log(appetizers);
-    // let entrees = _.pick(menuResponse, 'entrees');
-    // console.log(entrees);
-    // let sides = _.pick(menuResponse, 'sides');
-    // console.log(sides);
 
+    let entrees = _.pick(menuResponse, 'entrees');
+    console.log(entrees);
+
+    let sides = _.pick(menuResponse, 'sides');
+    console.log(sides);
 
     _.each(appetizers, function (object) {
       let appTemplateString = $('#appetizers').text();
       let renderApps = _.template(appTemplateString);
       let appHTML = renderApps(object);
-      $('.menu').append(appHTML);
+      $('.appetizers').append(appHTML);
 
-      // appetizers.forEach(function (item){
-      //   let itemTemplateString = $('#menuItem').text();
-      //   let renderItems = _.template(itemTemplateString);
-      //   let itemHTML = renderItems(item);
-      //   $('.appetizerItems').append(itemHTML);
-      // });
+        // if (object.allergy > 0) {
+        //   $('.icons').addClass($('showAllergy'));
+        // };
+
+        // if (object.favorite > 0) {
+        //   $('.icons').addClass($('showFavorite'))
+        // };
+
+        // if (object.spicy > 0) {
+        //   $('.icons').addClass($('showSpicy'));
+        // };
+
+        // if (object.vegan > 0) {
+        //   $('.icons').addClass($('showVegan'));
+        // };
     });
 
-    // _.each(entrees, function (object){
-    //   let entTemplateString = $('#entrees').text();
-    //   let renderEnts = _.template(entTemplateString);
-    //   let entHTML = renderEnts(object);
-    //   $('.menu').append(entHTML);
-
-    //   // entrees.forEach(function (item){
-    //   //   let itemTemplateString = $('#menuItem').text();
-    //   //   let renderItems = _.template(itemTemplateString);
-    //   //   let itemHTML = renderItems(item);
-    //   //   $('.entreeItems').append(itemHTML);
-    //   // })
-    // });
-
-    // _.each(sides, function (object){
-    //   let sideTemplateString = $('#sides').text();
-    //   let renderSides = _.template(sideTemplateString);
-    //   let sideHTML = renderSides(object);
-    //   $('.menu').append(sideHTML);
-
-      // sides.forEach(function (item){
-      //   let itemTemplateString = $('#menuItem').text();
-      //   let renderItems = _.template(itemTemplateString);
-      //   let itemHTML = renderItems(item);
-      //   $('.sideItems').append(itemHTML);
-      // });
-    // });
-
-
-
-//  Filling Menu <div>s
-    
-    _.each(arrayofArrays, function (array) {
-
-      _.each(array, function (object) {
-        
-        let objectItem    = renderTemplate(object.item);
-        let objectPrice   = renderTemplate(object.price);
-        let objectDescrip = renderTemplate(object.description);
-
-
-        $('.menuItemName').append(objectItem);
-        $('.menuItemPrice').append(objectPrice);
-        $('.menuItemDescription').append(objectDescrip);
-
-
-        if (object.allergy > 0) {
-          $('.icons').addClass($('showAllergy'));
-        };
-
-        if (object.favorite > 0) {
-          $('.icons').addClass($('showFavorite'))
-        };
-
-        if (object.spicy > 0) {
-          $('.icons').addClass($('showSpicy'));
-        };
-
-        if (object.vegan > 0) {
-          $('.icons').addClass($('showVegan'));
-        };
-
-      });
-
+    _.each(entrees, function (object) {
+      let entreesTemplateString = $('#entrees').text();
+      let renderApps = _.template(entreesTemplateString);
+      let entreeHTML = renderApps(object);
+      $('.entrees').append(entreeHTML);
     });
 
-// Attempt to use arrayOfSections
-    // let arrayOfSections = _.pick(menuResponse, function (menuSection) {
-    //   _.each(menuSection, function (x) {
-    //     console.log(menuSection);
-    //     return x.values;
-    //     $('.menuSection').append(x);
-    //     console.log(arrayOfSections);
-    //   });
-    // });
+    _.each(sides, function(object) {
+      let sidesTemplateString = $('#sides').text();
+      let renderApps = _.template(sidesTemplateString);
+      let sidesHTML = renderApps(object);
+      $('.sides').append(sidesHTML);
+    });
 
   });
-
-
 
 
 let flickrPromise = $.getJSON(flickrURL);
   
 
   flickrPromise.then( function (flickrResponse) {
-    // console.log(flickrResponse);
-    let arrayOfPhotos = flickrResponse.photos.photo;
-    // console.log(arrayOfPhotos);
+    console.log(flickrResponse);
+    let photosObject = flickrResponse.photos;
+    console.log(photosObject);
     let arrayOfImgUrls = _.map(arrayOfPhotos, function (photo){ 
     return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg"
     });
     let numberOfImages = 5;
     let sampleOfImages = _.sample(arrayOfImgUrls, numberOfImages);
     // console.log(sampleOfImages);
+
     _.each(sampleOfImages, function(randomImage) {
         $('#imageContainer').append(`<div class="imgContainerBox">
               <img class="imgBox" src={randomImage}</div>`
@@ -184,8 +109,6 @@ let flickrPromise = $.getJSON(flickrURL);
     });
 
   });
-
-
 
 
 }());
