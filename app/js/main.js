@@ -4,7 +4,7 @@
 
   console.log('It Works!');
 
-  var tagSearch = "fine+dining";
+  var tagSearch = "plated+food";
   var flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags=' + tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
   var menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
   var newsURL = 'https://json-data.herokuapp.com/restaurant/news/1';

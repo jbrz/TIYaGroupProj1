@@ -16,6 +16,7 @@
     <div class="logo">
       <h1>J.Bam's</h1>
     </div>
+    <hr></hr>
     <div>
       <ul class="social">
         <li class="zocial-facebook"></li>
@@ -40,6 +41,7 @@
           <p class="boxTitle">
             Latest News
           </p>
+          <hr></hr>
           <p class="newsTitle">
             <script type=text/template>
               <%= title %>
@@ -53,26 +55,23 @@
         </div>
       </aside>
       <aside><div class="box2"><p class="boxTitle">
-        Today's Special</div></aside>
+        Today's Special
+        <hr></hr></div>
+      </aside>
       <aside>
         <div class="box3">
           <p class="boxTitle">
             Our Location
           </p>
+          <hr></hr>
           <iframe
            width="265"
            height="100"
            frameborder="0" style="border:0"
            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwhu5p1I_q2AFctjDPPDmoBEH-YZY4mjc&amp;q=721+Miami+Cir+NE+Atlanta,+GA" allowfullscreen>
           </iframe>
-          <p>
+          <span>
             721 Miami Cir NE Atlanta, GA
-          </p>
-          <span>
-            Phone number
-          </span>
-          <span>
-            Phone number 2
           </span>
           <a href="#">
             Map
@@ -80,6 +79,14 @@
           <a href="#">
             Directions
           </a>
+          <br>
+          <span>
+            404-123-4567
+          </span>
+          <span>or</span>
+          <span>
+            770-123-4567
+          </span>
         </div>
       </aside>
     </section>
@@ -95,7 +102,12 @@
             <li rel="panel3">Reservations</li>
           </ul>
         </nav>
-        <div class="menu">
+        <div id="accordion1" class="accordion story">
+          <ul>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+          </ul>
+        </div>
+        <div id="accordion2" class="accordion menu">
           <div class="appetizers">
             <p class="sectionTitle">Appetizers</p>
           </div>
@@ -106,12 +118,7 @@
           <p class="sectionTitle">Sides</p>
           </div>
         </div>
-        <div id="accordion2" class="accordion">
-          <ul>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-          </ul>
-        </div>
-        <div id="accordion3" class="accordion">
+        <div id="accordion3" class="accordion form">
           <form class="reservationTab">
             <ul>
               <li>Full Name:</li>
@@ -139,10 +146,6 @@
               </select>
               <br></br>
               <button>Reserve Table</button>
-            </ul>
-          </form>
-        </div>
-      </div>
 
 <!-- Photos -->
       <div class="photostream">
