@@ -167,7 +167,23 @@ section {
     .content nav li.hidden {
       background-color: $white;
 
-  }
+    }
+
+   .accordionStory .hidden {
+        overflow: hidden;
+    }
+
+    .accordionMenu .hidden {
+        overflow: hidden;
+    }
+
+    .reservationTab .hidden {
+        overflow: hidden;
+    }
+
+    #navPanel:onclick {
+      display: none;
+    }
 
   // .content .accordion {
   //   // display: none;

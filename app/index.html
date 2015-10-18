@@ -95,19 +95,20 @@
     <div class="main">
 
       <div class="content">
+        
         <nav class="navPanel">
           <ul>
-            <li rel="panel1" class="active">Our Story</li>
-            <li rel="panel2">Menu</li>
-            <li rel="panel3">Reservations</li>
+            <li id="panel1">Our Story</li>
+            <li id="panel2" class="active">Menu</li>
+            <li id="panel3">Reservations</li>
           </ul>
         </nav>
-        <div class="accordion story" id="accordion1">
+        <div class="accordionStory" class="hidden" id="accordion1">
           <ul>
             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
           </ul>
         </div>
-        <div class="accordion menu" id="accordion2">
+        <div class="accordionMenu" class="hidden" id="accordion2">
           <div class="appetizers">
             <p class="sectionTitle">Appetizers</p>
           </div>
@@ -118,8 +119,8 @@
           <p class="sectionTitle">Sides</p>
           </div>
         </div>
-        <div class="accordion form" id="accordion3">
-          <form class="reservationTab">
+        <div class="accordionForm" id="accordion3">
+          <form class="reservationTab" class="hidden" >
             <ul>
               <li>Full Name:</li>
               <br></br>
@@ -148,6 +149,7 @@
               <button>Reserve Table</button>
             </ul>
          </form>
+
        </div>
      </div>
 

@@ -161,6 +161,18 @@ section {
 .content nav li.hidden {
   background-color: #FDFDFD; }
 
+.accordionStory .hidden {
+  overflow: hidden; }
+
+.accordionMenu .hidden {
+  overflow: hidden; }
+
+.reservationTab .hidden {
+  overflow: hidden; }
+
+#navPanel:onclick {
+  display: none; }
+
 .accordion {
   overflow: hidden;
   background-color: #EFD9B4;
@@ -178,10 +190,44 @@ h3 {
   color: #7B1F35;
   font-size: 13px; }
 
+.appetizers {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.entrees {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.sides {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.sectionTitle {
+  color: #7B1F35;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif; }
+
+.menuItemName {
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center; }
+
+.menuItemPrice {
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center; }
+
+.menuItemDescription {
+  margin: 15px;
+  margin-bottom: 50px;
+  margin-top: 5px; }
+
 form {
   width: 40%;
   margin-left: 30%;
-  margin-right: 30; }
+  margin-right: 30%; }
   form input {
     width: 100%;
     border: 1px solid #897F7D;

@@ -4,6 +4,57 @@
 
   console.log('It Works!');
 
+$('div.content').on('click','.panel1', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var content = $(parent.children('accordion1'));
+    content.removeClass('hidden')
+    content.addClass('active');    
+});
+
+$('div.content').on('click','.panel1', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var sibling = $(parent.siblings());
+    var content = $(sibling.children('accordion1'));
+    content.removeClass('active')
+    content.addClass('hidden');    
+});
+
+$('div.content').on('click','.panel2', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var content = $(parent.children('accordion2'));
+    content.removeClass('hidden')
+    content.addClass('active');    
+});
+
+$('div.content').on('click','.panel2', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var sibling = $(parent.siblings());
+    var content = $(sibling.children('accordion2'));
+    content.removeClass('active')
+    content.addClass('hidden');    
+});
+
+$('div.content').on('click','.panel3', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var content = $(parent.children('accordion3'));
+    content.removeClass('hidden')
+    content.addClass('active');    
+});
+
+$('div.content').on('click','.panel3', function(event) {
+    var btn = $(event.target);
+    var parent = $(btn.parent());
+    var sibling = $(parent.siblings());
+    var content = $(sibling.children('accordion3'));
+    content.removeClass('active')
+    content.addClass('hidden');    
+});
+
   let tagSearch = "plated+food";
   let flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags='+ tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
   let menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
