@@ -4,55 +4,17 @@
 
   console.log('It Works!');
 
-  $('div.content').on('click', '.panel1', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var content = $(parent.children('accordion1'));
-    content.removeClass('hidden');
-    content.addClass('active');
-  });
+  $(document).ready(function () {
 
-  $('div.content').on('click', '.panel1', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var sibling = $(parent.siblings());
-    var content = $(sibling.children('accordion1'));
-    content.removeClass('active');
-    content.addClass('hidden');
-  });
+    $('ul.tabs li').click(function () {
+      var tab_id = $(this).attr('data-tab');
 
-  $('div.content').on('click', '.panel2', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var content = $(parent.children('accordion2'));
-    content.removeClass('hidden');
-    content.addClass('active');
-  });
+      $('ul.tabs li').removeClass('active');
+      $('.accordion').removeClass('active');
 
-  $('div.content').on('click', '.panel2', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var sibling = $(parent.siblings());
-    var content = $(sibling.children('accordion2'));
-    content.removeClass('active');
-    content.addClass('hidden');
-  });
-
-  $('div.content').on('click', '.panel3', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var content = $(parent.children('accordion3'));
-    content.removeClass('hidden');
-    content.addClass('active');
-  });
-
-  $('div.content').on('click', '.panel3', function (event) {
-    var btn = $(event.target);
-    var parent = $(btn.parent());
-    var sibling = $(parent.siblings());
-    var content = $(sibling.children('accordion3'));
-    content.removeClass('active');
-    content.addClass('hidden');
+      $(this).addClass('active');
+      $("#" + tab_id).addClass('active');
+    });
   });
 
   var tagSearch = "plated+food";

@@ -119,59 +119,6 @@ section {
   }
   /* SEE ABOVE */
 
-.accordionHorizontal { 
-     overflow:hidden; 
-     color:#474747; 
-     background:#414141; 
-}
-.accordion .TEST { 
-      float:left;
-      overflow:hidden; 
-      color:#333; 
-      cursor:pointer; 
-      background: #333; 
-}
-
-.accordionHorizontal .TEST:hover {
-      background:#fff;
-}
-
-.accordionHorizontal .TEST p { 
-      display:none; 
-}
-
-.accordionHorizontal .TEST:after{
-      position:relative;
-      color:#000;
-      font-weight:bold;
-}
-
-.accordionHorizontal .TEST:target { 
-      background:#FFF; 
-      padding:10px;
-}
-.accordionHorizontal .TEST:target:hover { 
-      background:#FFF; 
-}
-.accordionHorizontal .TEST:target h2 {
-      width:100%;
-}
-.accordionHorizontal .TEST:target h2 a{ 
-      color:#333; 
-      padding:0;
-}
-.accordionHorizontal .TEST:target p {
-      display:block;
-}
-.accordionHorizontal .TEST h2 a{
-      padding:8px 10px;
-      display:block; 
-      font-size:16px; 
-      font-weight:normal;
-      color:#eee; 
-      text-decoration:none; 
-}
-
   .content {
     width: 75%;
     height: 50%; // This should be a defined height.
@@ -190,83 +137,53 @@ section {
     width: 100%;
     }
   }
-  .accordionBg {
-    width: 75%;
-   height: 5%;
-   // color Burgundy
-   background: linear-gradient($brown, #DEC9AA);
-  }
-  // Accordion Button Styling
+  // .accordionBg {
+  //   background: linear-gradient($brown, #DEC9AA);
+  // }
     .navPanel {
       // color White
       background-color: $white;
       margin-top: 0;
       padding: 3%;
     }
-    // hover elements
-    .content nav li:hover {
-      color: #7B1F35;
+    .navPanel{
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li{
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    ul.tabs li.active{
+      background: $brown;
+      color: $burgundy;
+      padding-bottom: 4%;
+      border-radius: 5%;
+    }
+
+    ul.tabs li:hover {
       font-weight: bold;
     }
-    .content nav li.active {
-      background-color: #EFD9B4;
-      padding: 3.5%;
-      border-radius: 20% 20% 0 0;
-    }
 
-    .content nav li.hidden {
-      background-color: $white;
-      transition: all 1s ease;
-
-    }
-
-   .accordionStory .hidden {
-        overflow: hidden;
-        transition: all 1s ease;
-    }
-
-    .accordionMenu .hidden {
-        overflow: hidden;
-        transition: all 1s ease;
-    }
-
-    .reservationTab .hidden {
-        overflow: hidden;
-        transition: all 1s ease;
-    }
-
-    .navPanel .onclick {
+    .accordion {
       display: none;
+      background: $brown;
+      padding: 4%;
     }
 
-  // .content .accordion {
-  //   // display: none;
-  //   // color Burgundy
-  //   color: #7B1F35;
-  //   // bg Brown
-  //   background-color: #EFD9B4;
-  // }
-  // .content .accordion.active {
-  //   display: block;
-  //   // font white
-  //   color: $white;
-  //   // bg Brown
-  //   background-color: #EFD9B4;
-  // }
-
-  .accordion{
-    overflow: hidden;
-    background-color: $brown;
-    width: 100%;
-  }
-  // Hidden/Revealed Classes for Accordion
-  .hide {
-    height: 0;
-    overflow: hidden;
-  }
-  .show {
-    height: 100%;
-  }
+    .accordion.active{
+      display: inherit;
+    }
 
 
   h3 {
@@ -300,17 +217,25 @@ section {
 }
 .menuItemName{
  // float: left;
+ width: 80%;
  margin: 15px;
  margin-bottom: 5px;
  margin-top: 5px;
- text-align: center;
+ font-size: 16px;
+ text-align: left;
+ font-weight: bold;
 }
 .menuItemPrice{
- // float: right;
- margin: 15px;
- margin-bottom: 5px;
- margin-top: 5px;
- text-align: center;
+ float: right;
+ position: right;
+ width: 20%;
+ margin: 0;
+ padding: 0;
+ font-size: 16px;
+ text-align: right;
+ margin-top: -4%;
+ margin-left: 80%;
+ margin-bottom: 3%;
 }
 .menuItemDescription{
  // float: left;
@@ -400,16 +325,3 @@ span {
   color: $burgundy;
 }
 }
-
-
-// div{
-//  max-width: 40%;
-//  /*White*/
-//  border: 5px solid $white ; 
-//  margin-top: 5%;
-//  padding: 2%;
-//  /*Brown*/
-//  background-color: #EFD9B4 ;
-//  margin-left: auto;
-//  margin-right: auto;
-// }
