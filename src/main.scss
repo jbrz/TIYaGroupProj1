@@ -205,10 +205,54 @@ section {
    font-size: 13px;
   }
 
+// The menu information
+.appetizers{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+
+.entrees{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+
+.sides{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+.sectionTitle{
+ color: $burgundy;
+ font-size: 16px;
+ font-family: Helvetica, sans-serif;
+}
+.menuItemName{
+ // float: left;
+ margin: 15px;
+ margin-bottom: 5px;
+ margin-top: 5px;
+ text-align: center;
+}
+.menuItemPrice{
+ // float: right;
+ margin: 15px;
+ margin-bottom: 5px;
+ margin-top: 5px;
+ text-align: center;
+}
+.menuItemDescription{
+ // float: left;
+ margin: 15px;
+ margin-bottom: 50px;
+ margin-top: 5px;
+}
+
   form {
     width: 40%;
     margin-left: 30%;
-    margin-right: 30;
+    margin-right: 30%;
     input {
       width: 100%;
       border: 1px solid #897F7D;
