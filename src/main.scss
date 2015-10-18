@@ -116,10 +116,66 @@ section {
 // Main Section Styling
   /* Why is this Float:right???  It's a wrapper div...this worries me. ~JB */
   .main {
-    float: right;
   }
   /* SEE ABOVE */
 
+.accordionHorizontal { 
+     width:830px;
+     overflow:hidden; 
+     margin:10px auto; 
+     color:#474747; 
+     background:#414141; 
+     padding:10px; 
+}
+.accordion .TEST { 
+      float:left;
+      overflow:hidden; 
+      color:#333; 
+      cursor:pointer; 
+      background: #333; 
+      margin:3px; 
+}
+
+.accordionHorizontal .TEST:hover {
+      background:#fff;
+}
+
+.accordionHorizontal .TEST p { 
+      display:none; 
+}
+
+.accordionHorizontal .TEST:after{
+      position:relative;
+      font-size:24px;
+      color:#000;
+      font-weight:bold;
+}
+
+.accordionHorizontal .TEST:target { 
+      background:#FFF; 
+      padding:10px;
+}
+.accordionHorizontal .TEST:target:hover { 
+      background:#FFF; 
+}
+.accordionHorizontal .TEST:target h2 {
+      width:100%;
+}
+.accordionHorizontal .TEST:target h2 a{ 
+      color:#333; 
+      padding:0;
+}
+.accordionHorizontal .TEST:target p {
+      display:block;
+}
+.accordionHorizontal .TEST h2 a{
+      padding:8px 10px;
+      display:block; 
+      font-size:16px; 
+      font-weight:normal;
+      color:#eee; 
+      text-decoration:none; 
+}
 
   .content {
     width: 75%;
@@ -158,30 +214,33 @@ section {
       font-weight: bold;
     }
     .content nav li.active {
-      background-color: $brown;
-      //color: ;
+      background-color: #EFD9B4;
       padding: 3.5%;
       border-radius: 20% 20% 0 0;
     }
 
     .content nav li.hidden {
       background-color: $white;
+      transition: all 1s ease;
 
     }
 
    .accordionStory .hidden {
         overflow: hidden;
+        transition: all 1s ease;
     }
 
     .accordionMenu .hidden {
         overflow: hidden;
+        transition: all 1s ease;
     }
 
     .reservationTab .hidden {
         overflow: hidden;
+        transition: all 1s ease;
     }
 
-    #navPanel:onclick {
+    .navPanel .onclick {
       display: none;
     }
 
@@ -334,13 +393,17 @@ h5 {
 }
 
 .subText {
-  color: $white;
-  margin: 0;
-  width: 50%;
-  position: relative;
-  span {
-    color: $burgundy;
-  }
+ color: $white;
+ margin: 0;
+ margin-top: 10px;
+ margin-right: 3%;
+ width: 50%;
+ position: relative;
+ float: right;
+ text-align: right;
+span {
+  color: $burgundy;
+}
 }
 
 
