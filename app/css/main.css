@@ -123,20 +123,16 @@ section {
 /* Why is this Float:right???  It's a wrapper div...this worries me. ~JB */
 /* SEE ABOVE */
 .accordionHorizontal {
-  width: 830px;
   overflow: hidden;
-  margin: 10px auto;
   color: #474747;
-  background: #414141;
-  padding: 10px; }
+  background: #414141; }
 
 .accordion .TEST {
   float: left;
   overflow: hidden;
   color: #333;
   cursor: pointer;
-  background: #333;
-  margin: 3px; }
+  background: #333; }
 
 .accordionHorizontal .TEST:hover {
   background: #fff; }
@@ -146,7 +142,6 @@ section {
 
 .accordionHorizontal .TEST:after {
   position: relative;
-  font-size: 24px;
   color: #000;
   font-weight: bold; }
 

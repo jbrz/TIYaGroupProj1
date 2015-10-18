@@ -120,12 +120,9 @@ section {
   /* SEE ABOVE */
 
 .accordionHorizontal { 
-     width:830px;
      overflow:hidden; 
-     margin:10px auto; 
      color:#474747; 
      background:#414141; 
-     padding:10px; 
 }
 .accordion .TEST { 
       float:left;
@@ -133,7 +130,6 @@ section {
       color:#333; 
       cursor:pointer; 
       background: #333; 
-      margin:3px; 
 }
 
 .accordionHorizontal .TEST:hover {
@@ -146,7 +142,6 @@ section {
 
 .accordionHorizontal .TEST:after{
       position:relative;
-      font-size:24px;
       color:#000;
       font-weight:bold;
 }
