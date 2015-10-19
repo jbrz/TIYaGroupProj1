@@ -71,13 +71,6 @@ $(document).ready(function(){
     // console.log(menuNumber)
     console.log(specials);
 
-    _.each(specials, function (object) {
-      let specialTemplateString = $('#special').text();
-      let renderSpecial = _.template(specialTemplateString);
-      let specialHTML = renderSpecial(object);
-      $('.menuSpecial').append(specialHTML);
-    });
-
     _.each(appValues, function (object) {
       let appTemplateString = $('#appetizers').text();
       let renderApps = _.template(appTemplateString);
@@ -97,6 +90,13 @@ $(document).ready(function(){
       let renderSides = _.template(sidesTemplateString);
       let sidesHTML = renderSides(object);
       $('.sides').append(sidesHTML);
+    });
+    
+    _.each(specials, function (object) {
+      let specialTemplateString = $('#special').text();
+      let renderSpecial = _.template(specialTemplateString);
+      let specialHTML = renderSpecial(object);
+      $('.menuSpecial').append(specialHTML);
     });
 
     // if (object.allergy > 0) {

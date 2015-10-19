@@ -66,13 +66,6 @@
     // console.log(menuNumber)
     console.log(specials);
 
-    _.each(specials, function (object) {
-      var specialTemplateString = $('#special').text();
-      var renderSpecial = _.template(specialTemplateString);
-      var specialHTML = renderSpecial(object);
-      $('.menuSpecial').append(specialHTML);
-    });
-
     _.each(appValues, function (object) {
       var appTemplateString = $('#appetizers').text();
       var renderApps = _.template(appTemplateString);
@@ -92,6 +85,13 @@
       var renderSides = _.template(sidesTemplateString);
       var sidesHTML = renderSides(object);
       $('.sides').append(sidesHTML);
+    });
+
+    _.each(specials, function (object) {
+      var specialTemplateString = $('#special').text();
+      var renderSpecial = _.template(specialTemplateString);
+      var specialHTML = renderSpecial(object);
+      $('.menuSpecial').append(specialHTML);
     });
 
     // if (object.allergy > 0) {
