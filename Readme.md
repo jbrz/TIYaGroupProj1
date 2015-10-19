@@ -5,6 +5,6 @@ This repo contains all the project files pertaining to the website of J BAM's - 
 
 ###Installation
 
-For cloned repo, `npm install` --> `bower install`.
+For cloned repo, `npm install` --> `bower install` --> `bourbon install` --> `neat install`.
 
 Be sure to `gulp watch` as you change "./src/" files - do not edit files within any of the directories inside of './app/'!!!!
