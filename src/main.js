@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 // menu Sections
   menuPromise.then(function(menuResponse) {
-    console.log(menuResponse);
+    // console.log(menuResponse);
     
 // Specials section
     // specialPromise.then(function (specialResponse) {
@@ -55,15 +55,28 @@ $(document).ready(function(){
 
     let appetizers = _.pick(menuResponse, 'appetizers');
     let appValues = _.propertyOf(appetizers)('appetizers');
-    console.log(appValues);
+    // console.log(appValues);
 
     let entrees = _.pick(menuResponse, 'entrees');
     let entValues = _.propertyOf(entrees)('entrees');
-    console.log(entValues);
+    // console.log(entValues);
 
     let sides = _.pick(menuResponse, 'sides');
     let sideValues = _.propertyOf(sides)('sides');
-    console.log(sideValues);
+    // console.log(sideValues);
+
+
+    let menuNumber = (Math.floor(Math.random() * (3 - 0)));
+    let specials = entValues[menuNumber];
+    // console.log(menuNumber)
+    console.log(specials);
+
+    _.each(specials, function (object) {
+      let specialTemplateString = $('#special').text();
+      let renderSpecial = _.template(specialTemplateString);
+      let specialHTML = renderSpecial(object);
+      $('.menuSpecial').append(specialHTML);
+    });
 
     _.each(appValues, function (object) {
       let appTemplateString = $('#appetizers').text();
@@ -74,15 +87,15 @@ $(document).ready(function(){
 
     _.each(entValues, function (object) {
       let entreesTemplateString = $('#entrees').text();
-      let renderApps = _.template(entreesTemplateString);
-      let entreeHTML = renderApps(object);
+      let renderEnts = _.template(entreesTemplateString);
+      let entreeHTML = renderEnts(object);
       $('.entrees').append(entreeHTML);
     });
 
     _.each(sideValues, function (object) {
       let sidesTemplateString = $('#sides').text();
-      let renderApps = _.template(sidesTemplateString);
-      let sidesHTML = renderApps(object);
+      let renderSides = _.template(sidesTemplateString);
+      let sidesHTML = renderSides(object);
       $('.sides').append(sidesHTML);
     });
 
@@ -118,6 +131,18 @@ flickrPromise.then( function (flickrResponse) {
     let photoHTML = renderPhoto(photo);
     $('.photostream').append(photoHTML);
   });
+
+  let arrayOfSpecialPhoto   = flickrResponse.photos.photo;
+  let numberOfSpecials        = 1;
+  let sampleOfSpecialObjects = _.sample(arrayOfSpecialPhoto, numberOfSpecials);
+  let photoSpecialString = $('#photoSpecial').text();
+  let renderSpecial = _.template(photoSpecialString);
+
+  _.each(sampleOfSpecialObjects, function (photo){
+    let specialHTML = renderSpecial(photo);
+    $('.specialPhoto').append.HTML
+  })
+
 });
 
 

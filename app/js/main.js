@@ -38,7 +38,7 @@
 
   // menu Sections
   menuPromise.then(function (menuResponse) {
-    console.log(menuResponse);
+    // console.log(menuResponse);
 
     // Specials section
     // specialPromise.then(function (specialResponse) {
@@ -51,15 +51,27 @@
 
     var appetizers = _.pick(menuResponse, 'appetizers');
     var appValues = _.propertyOf(appetizers)('appetizers');
-    console.log(appValues);
+    // console.log(appValues);
 
     var entrees = _.pick(menuResponse, 'entrees');
     var entValues = _.propertyOf(entrees)('entrees');
-    console.log(entValues);
+    // console.log(entValues);
 
     var sides = _.pick(menuResponse, 'sides');
     var sideValues = _.propertyOf(sides)('sides');
-    console.log(sideValues);
+    // console.log(sideValues);
+
+    var menuNumber = Math.floor(Math.random() * (3 - 0));
+    var specials = entValues[menuNumber];
+    // console.log(menuNumber)
+    console.log(specials);
+
+    _.each(specials, function (object) {
+      var specialTemplateString = $('#special').text();
+      var renderSpecial = _.template(specialTemplateString);
+      var specialHTML = renderSpecial(object);
+      $('.menuSpecial').append(specialHTML);
+    });
 
     _.each(appValues, function (object) {
       var appTemplateString = $('#appetizers').text();
@@ -70,15 +82,15 @@
 
     _.each(entValues, function (object) {
       var entreesTemplateString = $('#entrees').text();
-      var renderApps = _.template(entreesTemplateString);
-      var entreeHTML = renderApps(object);
+      var renderEnts = _.template(entreesTemplateString);
+      var entreeHTML = renderEnts(object);
       $('.entrees').append(entreeHTML);
     });
 
     _.each(sideValues, function (object) {
       var sidesTemplateString = $('#sides').text();
-      var renderApps = _.template(sidesTemplateString);
-      var sidesHTML = renderApps(object);
+      var renderSides = _.template(sidesTemplateString);
+      var sidesHTML = renderSides(object);
       $('.sides').append(sidesHTML);
     });
 
@@ -111,6 +123,17 @@
     _.each(sampleOfPhotoObjects, function (photo) {
       var photoHTML = renderPhoto(photo);
       $('.photostream').append(photoHTML);
+    });
+
+    var arrayOfSpecialPhoto = flickrResponse.photos.photo;
+    var numberOfSpecials = 1;
+    var sampleOfSpecialObjects = _.sample(arrayOfSpecialPhoto, numberOfSpecials);
+    var photoSpecialString = $('#photoSpecial').text();
+    var renderSpecial = _.template(photoSpecialString);
+
+    _.each(sampleOfSpecialObjects, function (photo) {
+      var specialHTML = renderSpecial(photo);
+      $('.specialPhoto').append.HTML;
     });
   });
 })();
