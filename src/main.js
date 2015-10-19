@@ -91,13 +91,11 @@ $(document).ready(function(){
       let sidesHTML = renderSides(object);
       $('.sides').append(sidesHTML);
     });
-    
-    _.each(specials, function (object) {
+
       let specialTemplateString = $('#special').text();
       let renderSpecial = _.template(specialTemplateString);
-      let specialHTML = renderSpecial(object);
+      let specialHTML = renderSpecial(specials);
       $('.menuSpecial').append(specialHTML);
-    });
 
     // if (object.allergy > 0) {
     //   $('.icons').addClass($('showAllergy'));
@@ -135,12 +133,12 @@ flickrPromise.then( function (flickrResponse) {
   let arrayOfSpecialPhoto   = flickrResponse.photos.photo;
   let numberOfSpecials        = 1;
   let sampleOfSpecialObjects = _.sample(arrayOfSpecialPhoto, numberOfSpecials);
-  let photoSpecialString = $('#photoSpecial').text();
+  let photoSpecialString = $('#photoObject').text();
   let renderSpecial = _.template(photoSpecialString);
 
   _.each(sampleOfSpecialObjects, function (photo){
     let specialHTML = renderSpecial(photo);
-    $('.specialPhoto').append.HTML
+    $('.specialPhoto').append(specialHTML)
   })
 
 });

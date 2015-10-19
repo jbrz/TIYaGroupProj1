@@ -31,7 +31,7 @@
   <div class="container">
 
     <div class="banner">
-      <img class="img-banner" src="http://www.placecage.com/1000/270">
+      <img class="img-banner" src="http://i.imgur.com/QKjNC9e.png">
     </div>
 
 <!-- triboxes in middle of page -->
@@ -56,7 +56,9 @@
       </aside>
       <aside><div class="box box2"><p class="boxTitle">
         Today's Special</p>
-        <div class="menuSpecial"></div>
+        <div class="menuSpecial">
+          <div class="specialPhoto"><div>
+        </div>
         <hr></hr></div>
       </aside>
       <aside>
@@ -172,8 +174,8 @@
 
 <!-- Specials HTML injection script -->
 <script type="text/template" id="special">
-    <p class="specialItemName"><%= item  %></p>
-    <p class="specialItemPrice"><%= price %></p>
+    <span class="specialItemName"><%= item  %></span>
+    <span class="specialItemPrice"><%= price %></span>
     <p class="specialItemDescription"><%= description %></p>
   </script>
 
@@ -199,7 +201,7 @@
 <!-- Photo Injection Script -->
   <script type="text/template" id="photoObject">
     <img class="photo" src="https://farm<%= farm %>.staticflickr.com/<%= server %>/<%= id %>_<%= secret %>.jpg">
-  </script> 
+  </script>
 
 </body>
 </html>

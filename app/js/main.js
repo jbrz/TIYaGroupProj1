@@ -87,12 +87,10 @@
       $('.sides').append(sidesHTML);
     });
 
-    _.each(specials, function (object) {
-      var specialTemplateString = $('#special').text();
-      var renderSpecial = _.template(specialTemplateString);
-      var specialHTML = renderSpecial(object);
-      $('.menuSpecial').append(specialHTML);
-    });
+    var specialTemplateString = $('#special').text();
+    var renderSpecial = _.template(specialTemplateString);
+    var specialHTML = renderSpecial(specials);
+    $('.menuSpecial').append(specialHTML);
 
     // if (object.allergy > 0) {
     //   $('.icons').addClass($('showAllergy'));
@@ -128,12 +126,12 @@
     var arrayOfSpecialPhoto = flickrResponse.photos.photo;
     var numberOfSpecials = 1;
     var sampleOfSpecialObjects = _.sample(arrayOfSpecialPhoto, numberOfSpecials);
-    var photoSpecialString = $('#photoSpecial').text();
+    var photoSpecialString = $('#photoObject').text();
     var renderSpecial = _.template(photoSpecialString);
 
     _.each(sampleOfSpecialObjects, function (photo) {
       var specialHTML = renderSpecial(photo);
-      $('.specialPhoto').append.HTML;
+      $('.specialPhoto').append(specialHTML);
     });
   });
 })();

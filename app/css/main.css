@@ -17,7 +17,6 @@ body {
 p {
   font-family: Georgia, serif;
   font-weight: lighter;
-  /*Dark Black*/
   color: #2C272B;
   margin: 10%;
   text-align: justify; }
@@ -42,7 +41,6 @@ h1 {
   color: white;
   font-family: 'zocial', sans-serif; }
 
-/*   What's goin on up here? This doing anything? ~JB   */
 .social {
   margin: 0;
   padding: 0;
@@ -76,6 +74,24 @@ h1 {
   margin-left: 5%;
   margin-right: 5%;
   overflow: hidden; }
+  .box2 .specialPhoto {
+    width: 264px;
+    height: 97px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto; }
+  .box2 .specialItemName {
+    font-weight: bold;
+    font-size: 0.6em;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: auto; }
+  .box2 .specialItemPrice {
+    font-weight: bold;
+    font-size: 0.6em;
+    width: 20%; }
+  .box2 .specialItemDescription {
+    font-size: 0.6em; }
 
 .box3 {
   overflow: hidden;
@@ -120,8 +136,6 @@ section {
   color: #7B1F35;
   font-family: Helvetica, sans-serif; }
 
-/* Why is this Float:right???  It's a wrapper div...this worries me. ~JB */
-/* SEE ABOVE */
 .content {
   width: 75%;
   height: 50%;
@@ -193,7 +207,8 @@ h3 {
 
 .sectionTitle {
   color: #7B1F35;
-  font-size: 16px;
+  font-size: 30px;
+  font-style: italic;
   font-family: Helvetica, sans-serif; }
 
 .menuItemName {
