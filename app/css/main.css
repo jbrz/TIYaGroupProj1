@@ -121,9 +121,6 @@ section {
   font-family: Helvetica, sans-serif; }
 
 /* Why is this Float:right???  It's a wrapper div...this worries me. ~JB */
-.main {
-  float: right; }
-
 /* SEE ABOVE */
 .content {
   width: 75%;
@@ -139,49 +136,96 @@ section {
   .content .menuItemTop, .content .menuItemBottom {
     width: 100%; }
 
-.accordionBg {
-  width: 75%;
-  height: 5%;
-  background: linear-gradient(#EFD9B4, #DEC9AA); }
-
 .navPanel {
   background-color: #FDFDFD;
   margin-top: 0;
   padding: 3%; }
 
-.content nav li:hover {
+.navPanel {
+  margin: 0 auto;
+  padding: 0; }
+
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+ul.tabs li {
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer; }
+
+ul.tabs li.active {
+  background: #EFD9B4;
   color: #7B1F35;
+  padding-bottom: 4%;
+  border-radius: 5%; }
+
+ul.tabs li:hover {
   font-weight: bold; }
 
-.content nav li.active {
-  background-color: #EFD9B4;
-  padding: 3.5%;
-  border-radius: 20% 20% 0 0; }
-
-.content nav li.hidden {
-  background-color: #FDFDFD; }
-
 .accordion {
-  overflow: hidden;
-  background-color: #EFD9B4;
-  width: 100%; }
+  display: none;
+  background: #EFD9B4;
+  padding: 4%; }
 
-.hide {
-  height: 0;
-  overflow: hidden; }
-
-.show {
-  height: 100%; }
+.accordion.active {
+  display: inherit; }
 
 h3 {
   font-family: Helvetica, sans-serif;
   color: #7B1F35;
   font-size: 13px; }
 
+.appetizers {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.entrees {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.sides {
+  font-size: 12px;
+  font-family: Georgia, serif; }
+
+.sectionTitle {
+  color: #7B1F35;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif; }
+
+.menuItemName {
+  width: 80%;
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold; }
+
+.menuItemPrice {
+  float: right;
+  position: right;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  text-align: right;
+  margin-top: -4%;
+  margin-left: 80%;
+  margin-bottom: 3%; }
+
+.menuItemDescription {
+  margin: 15px;
+  margin-bottom: 50px;
+  margin-top: 5px; }
+
 form {
   width: 40%;
   margin-left: 30%;
-  margin-right: 30; }
+  margin-right: 30%; }
   form input {
     width: 100%;
     border: 1px solid #897F7D;
@@ -233,7 +277,11 @@ h5 {
 .subText {
   color: #FDFDFD;
   margin: 0;
+  margin-top: 10px;
+  margin-right: 3%;
   width: 50%;
-  position: relative; }
+  position: relative;
+  float: right;
+  text-align: right; }
   .subText span {
     color: #7B1F35; }
