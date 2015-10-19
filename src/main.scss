@@ -116,10 +116,8 @@ section {
 // Main Section Styling
   /* Why is this Float:right???  It's a wrapper div...this worries me. ~JB */
   .main {
-    float: right;
   }
   /* SEE ABOVE */
-
 
   .content {
     width: 75%;
@@ -139,64 +137,53 @@ section {
     width: 100%;
     }
   }
-  .accordionBg {
-    width: 75%;
-   height: 5%;
-   // color Burgundy
-   background: linear-gradient($brown, #DEC9AA);
-  }
-  // Accordion Button Styling
+  // .accordionBg {
+  //   background: linear-gradient($brown, #DEC9AA);
+  // }
     .navPanel {
       // color White
       background-color: $white;
       margin-top: 0;
       padding: 3%;
     }
-    // hover elements
-    .content nav li:hover {
-      color: #7B1F35;
+    .navPanel{
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li{
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    ul.tabs li.active{
+      background: $brown;
+      color: $burgundy;
+      padding-bottom: 4%;
+      border-radius: 5%;
+    }
+
+    ul.tabs li:hover {
       font-weight: bold;
     }
-    .content nav li.active {
-      background-color: $brown;
-      //color: ;
-      padding: 3.5%;
-      border-radius: 20% 20% 0 0;
+
+    .accordion {
+      display: none;
+      background: $brown;
+      padding: 4%;
     }
 
-    .content nav li.hidden {
-      background-color: $white;
-
-  }
-
-  // .content .accordion {
-  //   // display: none;
-  //   // color Burgundy
-  //   color: #7B1F35;
-  //   // bg Brown
-  //   background-color: #EFD9B4;
-  // }
-  // .content .accordion.active {
-  //   display: block;
-  //   // font white
-  //   color: $white;
-  //   // bg Brown
-  //   background-color: #EFD9B4;
-  // }
-
-  .accordion{
-    overflow: hidden;
-    background-color: $brown;
-    width: 100%;
-  }
-  // Hidden/Revealed Classes for Accordion
-  .hide {
-    height: 0;
-    overflow: hidden;
-  }
-  .show {
-    height: 100%;
-  }
+    .accordion.active{
+      display: inherit;
+    }
 
 
   h3 {
@@ -205,10 +192,62 @@ section {
    font-size: 13px;
   }
 
+// The menu information
+.appetizers{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+
+.entrees{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+
+.sides{
+ font-size: 12px;
+ font-family: Georgia, serif;
+ // float: left;
+}
+.sectionTitle{
+ color: $burgundy;
+ font-size: 16px;
+ font-family: Helvetica, sans-serif;
+}
+.menuItemName{
+ // float: left;
+ width: 80%;
+ margin: 15px;
+ margin-bottom: 5px;
+ margin-top: 5px;
+ font-size: 16px;
+ text-align: left;
+ font-weight: bold;
+}
+.menuItemPrice{
+ float: right;
+ position: right;
+ width: 20%;
+ margin: 0;
+ padding: 0;
+ font-size: 16px;
+ text-align: right;
+ margin-top: -4%;
+ margin-left: 80%;
+ margin-bottom: 3%;
+}
+.menuItemDescription{
+ // float: left;
+ margin: 15px;
+ margin-bottom: 50px;
+ margin-top: 5px;
+}
+
   form {
     width: 40%;
     margin-left: 30%;
-    margin-right: 30;
+    margin-right: 30%;
     input {
       width: 100%;
       border: 1px solid #897F7D;
@@ -274,24 +313,15 @@ h5 {
 }
 
 .subText {
-  color: $white;
-  margin: 0;
-  width: 50%;
-  position: relative;
-  span {
-    color: $burgundy;
-  }
+ color: $white;
+ margin: 0;
+ margin-top: 10px;
+ margin-right: 3%;
+ width: 50%;
+ position: relative;
+ float: right;
+ text-align: right;
+span {
+  color: $burgundy;
 }
-
-
-// div{
-//  max-width: 40%;
-//  /*White*/
-//  border: 5px solid $white ; 
-//  margin-top: 5%;
-//  padding: 2%;
-//  /*Brown*/
-//  background-color: #EFD9B4 ;
-//  margin-left: auto;
-//  margin-right: auto;
-// }
+}

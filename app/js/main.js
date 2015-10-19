@@ -4,6 +4,19 @@
 
   console.log('It Works!');
 
+  $(document).ready(function () {
+
+    $('ul.tabs li').click(function () {
+      var tab_id = $(this).attr('data-tab');
+
+      $('ul.tabs li').removeClass('active');
+      $('.accordion').removeClass('active');
+
+      $(this).addClass('active');
+      $("#" + tab_id).addClass('active');
+    });
+  });
+
   var tagSearch = "plated+food";
   var flickrURL = 'https://api.flickr.com/services/rest?method=flickr.photos.search&tags=' + tagSearch + '&format=json&nojsoncallback=1&api_key=ba1b9d0f8d9ba8dc20eadd024c969c34';
   var menuURL = 'https://json-data.herokuapp.com/restaurant/menu/1';
